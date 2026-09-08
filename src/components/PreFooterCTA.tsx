@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 
@@ -34,12 +36,19 @@ export default function PreFooterCTA({
 
           {/* Action Buttons */}
           <div className="mt-[50px] flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href={primaryButtonHref}
-              className="w-[160px] h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[16px] leading-[19.4px] font-bold rounded-[5px] flex items-center justify-center transition-colors shadow-sm hover:shadow"
+            <button
+              type="button"
+              onClick={() => {
+                const widget = document.getElementById("donation-widget");
+                if (widget) {
+                  widget.scrollIntoView({ behavior: "smooth", block: "center" });
+                  window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
+                }
+              }}
+              className="w-[160px] h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[16px] leading-[19.4px] font-bold rounded-[5px] flex items-center justify-center transition-colors shadow-sm hover:shadow cursor-pointer"
             >
               {primaryButtonText}
-            </Link>
+            </button>
             <Link
               href={secondaryButtonHref}
               className="w-[164px] h-[42px] bg-transparent hover:bg-white/60 border border-[#4a4a53] text-[#1b1b1b] text-[16px] leading-[19.4px] font-bold rounded-[5px] flex items-center justify-center transition-colors"

@@ -70,7 +70,7 @@ export default function CorporateDonors() {
         </h2>
       </div>
 
-      {/* Infinite Carousel / Marquee Container with Left-to-Right Loop */}
+      {/* Infinite Carousel / Marquee Container with Leftwards (RTL) Loop */}
       <div className="relative w-full max-w-[1220px] mx-auto overflow-hidden">
         {/* Left Linear Gradient Mask (Rectangle 9 in Figma) */}
         <div className="absolute left-0 top-0 bottom-0 w-[84px] md:w-[110px] bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10" />
@@ -78,8 +78,8 @@ export default function CorporateDonors() {
         {/* Right Linear Gradient Mask (Rectangle 10 in Figma) */}
         <div className="absolute right-0 top-0 bottom-0 w-[84px] md:w-[112px] bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10" />
 
-        {/* Scrolling Track: Left to Right infinite marquee */}
-        <div className="animate-marquee-ltr flex items-center">
+        {/* Scrolling Track: Moving towards the left side */}
+        <div className="animate-marquee-rtl flex items-center">
           {repeatedDonors.map((donor, idx) => (
             <div
               key={`${donor.name}-${idx}`}

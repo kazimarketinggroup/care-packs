@@ -17,6 +17,15 @@ export default function Navbar() {
     { label: "News & events", href: "#news-events" },
   ];
 
+  const handleDonateClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const widget = document.getElementById("donation-widget");
+    if (widget) {
+      widget.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-[#fefafc] border-b border-[#f3eef3] shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-all">
       <div className="max-w-[1247px] mx-auto px-4 md:px-6 h-[74px] flex items-center justify-between">
@@ -47,12 +56,14 @@ export default function Navbar() {
 
         {/* Right: Donate CTA Button & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Link
-            href="#donate"
-            className="hidden sm:inline-flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] active:scale-[0.98] text-white font-bold text-[14.5px] px-6 h-[42px] rounded-[6px] shadow-sm transition-all duration-150"
+          <button
+            type="button"
+            onClick={handleDonateClick}
+            className="hidden sm:inline-flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] active:scale-[0.98] text-white font-bold text-[14.5px] px-6 h-[42px] rounded-[6px] shadow-sm transition-all duration-150 cursor-pointer"
           >
             Donate
-          </Link>
+          </button>
+
 
           {/* Mobile menu button */}
           <button
@@ -80,13 +91,16 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#donate"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 w-full flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] text-white font-bold text-[15px] h-[44px] rounded-[6px] shadow-sm transition-all"
+            <button
+              type="button"
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                handleDonateClick(e);
+              }}
+              className="mt-2 w-full flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] text-white font-bold text-[15px] h-[44px] rounded-[6px] shadow-sm transition-all cursor-pointer"
             >
               Donate
-            </Link>
+            </button>
           </div>
         </div>
       )}

@@ -23,7 +23,7 @@ export default function AboutUs({
         {/* Banner Team Image with 15px rounded corners */}
         <div className="w-full rounded-[15px] overflow-hidden shadow-sm">
           <Image
-            src="/assets/images/Copy_of_DSC08711_1_21_1753.png"
+            src="/assets/images/Copy_of_DSC08711_1_21_1753.webp"
             alt="Care Packs team and corporate partners at pack building event"
             width={1201}
             height={362}
