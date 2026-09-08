@@ -1,6 +1,7 @@
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import CorporateDonors from "@/components/CorporateDonors";
 import PreFooterCTA from "@/components/PreFooterCTA";
 import Footer from "@/components/Footer";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <AnnouncementBar />
       <Navbar />
       <Hero />
+      <CorporateDonors />
       <PreFooterCTA />
       <Footer />
     </main>
