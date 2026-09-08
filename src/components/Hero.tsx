@@ -16,9 +16,9 @@ export default function Hero() {
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-[1247px] w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* Left Column: Headlines & CTAs */}
-          <div className="lg:col-span-7 flex flex-col justify-center max-w-[586px]">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8 xl:gap-[72px]">
+          {/* Left Column: Headlines & CTAs (Exact Figma width: 586px) */}
+          <div className="w-full lg:w-[586px] flex-shrink-0 flex flex-col justify-center">
             {/* Tag Badge */}
             <div className="inline-flex items-center gap-3 mb-[31px]">
               <span className="w-[10px] h-[10px] bg-[#ec008c] rounded-[1px] flex-shrink-0" />
@@ -58,8 +58,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Mini Donation Widget */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Right Column: Mini Donation Widget (Exact Figma width: 529px) */}
+          <div className="w-full lg:w-[529px] flex-shrink-0 flex justify-center lg:justify-end">
             <MiniWidget />
           </div>
         </div>

@@ -18,20 +18,20 @@ export default function MiniWidget() {
         </span>
       </div>
 
-      {/* Tabs Row: Pack Selector (gap 10px, height 36px) */}
-      <div className="flex items-center gap-[10px] mt-[29px] overflow-x-auto pb-1 no-scrollbar">
+      {/* Tabs Row: Pack Selector (Exact widths from Figma: 164px, 142px, 143px with whitespace-nowrap) */}
+      <div className="flex items-center gap-[10px] mt-[29px]">
         {/* P1 - Baby Pack (Active) */}
         <button
           type="button"
           onClick={() => setSelectedPack("baby")}
-          className={`h-[36px] px-5 rounded-full flex items-center justify-center gap-3 transition-all ${
+          className={`h-[36px] w-[164px] flex-shrink-0 whitespace-nowrap rounded-full flex items-center justify-center gap-2.5 transition-all ${
             selectedPack === "baby"
               ? "bg-[#ec008c] text-white shadow-sm"
               : "bg-[#454545]/5 text-[#6f6f77] hover:text-[#1b1b1b]"
           }`}
         >
-          <span className="text-[13px] font-bold tracking-normal">P1-Baby Pack</span>
-          <span className="text-[8px] font-medium tracking-normal text-white">
+          <span className="text-[13px] font-bold tracking-normal whitespace-nowrap">P1-Baby Pack</span>
+          <span className="text-[8px] font-medium tracking-normal text-white whitespace-nowrap">
             Active
           </span>
         </button>
@@ -39,11 +39,11 @@ export default function MiniWidget() {
         {/* P2 - Tech Pack (Coming Soon) */}
         <button
           type="button"
-          className="h-[36px] px-4 rounded-full bg-[#454545]/5 text-[#6f6f77] flex items-center justify-center gap-2 cursor-not-allowed"
+          className="h-[36px] w-[142px] flex-shrink-0 whitespace-nowrap rounded-full bg-[#454545]/5 text-[#6f6f77] flex items-center justify-center gap-1.5 cursor-not-allowed"
           title="Coming soon"
         >
-          <span className="text-[12px] font-medium tracking-normal">P2-Tech Pack</span>
-          <span className="text-[8px] font-medium text-[#6f6f77]/40 tracking-normal">
+          <span className="text-[12px] font-medium tracking-normal whitespace-nowrap">P2-Tech Pack</span>
+          <span className="text-[8px] font-medium text-[#6f6f77]/40 tracking-normal whitespace-nowrap">
             soon
           </span>
         </button>
@@ -51,11 +51,11 @@ export default function MiniWidget() {
         {/* P3 - Crisis Pack (Coming Soon) */}
         <button
           type="button"
-          className="h-[36px] px-4 rounded-full bg-[#454545]/5 text-[#6f6f77] flex items-center justify-center gap-2 cursor-not-allowed"
+          className="h-[36px] w-[143px] flex-shrink-0 whitespace-nowrap rounded-full bg-[#454545]/5 text-[#6f6f77] flex items-center justify-center gap-1.5 cursor-not-allowed"
           title="Coming soon"
         >
-          <span className="text-[12px] font-medium tracking-normal">P3-Crisis Pack</span>
-          <span className="text-[8px] font-medium text-[#6f6f77]/40 tracking-normal">
+          <span className="text-[12px] font-medium tracking-normal whitespace-nowrap">P3-Crisis Pack</span>
+          <span className="text-[8px] font-medium text-[#6f6f77]/40 tracking-normal whitespace-nowrap">
             soon
           </span>
         </button>
@@ -77,11 +77,15 @@ export default function MiniWidget() {
         </div>
       </div>
 
-      {/* Description (exact 2-line break) */}
-      <p className="text-[12px] leading-[20px] text-[#6f6f77] mt-[29px] max-w-[395px]">
-        Wipes, cotton wool, shampoo and more, for a family who needs them.<br />
-        Assembles 1 baby pack every month. Cancel any time.
-      </p>
+      {/* Description (Exact 2-line formatting from Figma) */}
+      <div className="text-[12px] leading-[20px] text-[#6f6f77] mt-[29px] max-w-[468px]">
+        <p className="whitespace-normal sm:whitespace-nowrap">
+          Wipes, cotton wool, shampoo and more, for a family who needs them.
+        </p>
+        <p className="whitespace-normal sm:whitespace-nowrap">
+          Assembles 1 baby pack every month. Cancel any time.
+        </p>
+      </div>
 
       {/* Bottom CTA Button */}
       <button
