@@ -18,38 +18,40 @@ export default function Hero() {
       <div className="relative z-10 max-w-[1247px] w-full mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Headlines & CTAs */}
-          <div className="lg:col-span-7 flex flex-col justify-center max-w-[620px]">
+          <div className="lg:col-span-7 flex flex-col justify-center max-w-[586px]">
             {/* Tag Badge */}
-            <div className="inline-flex items-center gap-2.5 mb-5">
-              <span className="w-2.5 h-2.5 bg-[#ec008c] rounded-[2px] flex-shrink-0" />
-              <span className="text-[13px] font-medium text-[#3a3a3f] tracking-normal">
+            <div className="inline-flex items-center gap-3 mb-[31px]">
+              <span className="w-[10px] h-[10px] bg-[#ec008c] rounded-[1px] flex-shrink-0" />
+              <span className="text-[13px] font-medium text-[#3a3a3f] tracking-normal leading-[16px]">
                 A Gift of Hope with Every Pack
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-[45px] leading-[1.2] md:leading-[58px] font-medium text-[#1b1b1b] tracking-[-0.025em] mb-6">
-              Turn corporate goodwill into something a family can hold in their hands.
+            <h1 className="text-3xl sm:text-4xl lg:text-[45px] leading-[1.25] lg:leading-[60px] font-medium text-[#1b1b1b] tracking-normal mb-[46px]">
+              Turn corporate goodwill<br className="hidden sm:inline" />{" "}
+              into something a family<br className="hidden sm:inline" />{" "}
+              can hold in their hands.
             </h1>
 
             {/* Subtitle Description */}
-            <p className="text-[16px] leading-[28px] text-[#4a4a53] mb-9 max-w-[567px]">
+            <p className="text-[16px] leading-[28px] text-[#4a4a53] mb-[65px] max-w-[567px]">
               Care Packs gives organisations a practical way to create measurable, hands-on
               impact. Your people build the packs. Councils, family hubs and food banks put them
               straight into the hands of families who need them.
             </p>
 
             {/* Dual CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
+            <div className="flex flex-wrap items-center gap-[22px]">
               <Link
                 href="#partner"
-                className="inline-flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] active:scale-[0.98] text-white font-semibold text-[14.5px] px-7 h-[42px] rounded-[6px] shadow-sm transition-all duration-150"
+                className="w-[162px] h-[42px] inline-flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] active:scale-[0.98] text-white font-semibold text-[14.5px] rounded-[6px] shadow-sm transition-all duration-150"
               >
                 Partner with us
               </Link>
               <Link
                 href="#fund-pack"
-                className="inline-flex items-center justify-center bg-white hover:bg-[#f8f8f9] active:scale-[0.98] text-[#1b1b1b] border border-[#1b1b1b] font-semibold text-[14.5px] px-7 h-[42px] rounded-[6px] shadow-sm transition-all duration-150"
+                className="w-[162px] h-[42px] inline-flex items-center justify-center bg-white hover:bg-[#f8f8f9] active:scale-[0.98] text-[#1b1b1b] border border-[#1b1b1b] font-semibold text-[14.5px] rounded-[6px] shadow-sm transition-all duration-150"
               >
                 Fund a pack - £8
               </Link>
