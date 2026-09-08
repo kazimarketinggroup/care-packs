@@ -29,7 +29,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="w-full bg-white pt-[39px] pb-[50px]">
+    <section id="how-it-works" className="w-full bg-white pt-[39px] pb-[50px]">
       <div className="max-w-[1216px] mx-auto px-4 md:px-6 lg:px-0">
         {/* Top Tag */}
         <div className="flex items-center gap-2">

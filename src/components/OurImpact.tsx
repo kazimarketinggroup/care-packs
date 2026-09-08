@@ -75,7 +75,7 @@ export default function OurImpact() {
   }, [hasAnimated]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-[40px] md:py-[50px]">
+    <section ref={sectionRef} id="impact" className="w-full bg-white py-[40px] md:py-[50px]">
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[112px]">
         {/* Soft Pink Rounded Card Container (Frame 5 in Figma) */}
         <div className="w-full max-w-[1215px] mx-auto bg-[#fff4fb] rounded-[15px] pt-8 pb-10 px-5 sm:px-8 md:px-10 lg:px-[56px] lg:pt-[49px] lg:pb-[57px] shadow-sm">

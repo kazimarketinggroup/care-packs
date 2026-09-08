@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function UpcomingEvent() {
   return (
-    <section className="w-full bg-white pt-[50px] pb-[50px]">
+    <section id="news-events" className="w-full bg-white pt-[50px] pb-[50px]">
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[105px]">
         {/* Soft Pink Rounded Box (Frame 18 / Section 21:1233) */}
         <div className="w-full max-w-[1230px] mx-auto bg-[#fff6fc] rounded-[15px] p-6 sm:p-8 md:p-10 lg:p-[48px] shadow-sm">
