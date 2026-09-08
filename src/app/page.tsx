@@ -1,6 +1,7 @@
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <AnnouncementBar />
       <Navbar />
       <Hero />
+      <Footer />
     </main>
   );
 }
