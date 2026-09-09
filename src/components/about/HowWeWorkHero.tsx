@@ -4,15 +4,17 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface WhoWeAreHeroProps {
-  activeTab?: "Our Purpose" | "Board of Trustees" | "Founding Story";
+interface HowWeWorkHeroProps {
+  activeTab?: "Referral Model" | "Packing Days" | "Baby Pack Spec";
 }
 
-export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHeroProps) {
+export default function HowWeWorkHero({
+  activeTab = "Referral Model",
+}: HowWeWorkHeroProps) {
   const tabs = [
-    { label: "Our Purpose", href: "/about/our-purpose" },
-    { label: "Board of Trustees", href: "/about/board-of-trustees" },
-    { label: "Founding Story", href: "/about/founding-story" },
+    { label: "Referral Model", href: "/about/referral-model", id: "referral-model" },
+    { label: "Packing Days", href: "/about/packing-days", id: "packing-days" },
+    { label: "Baby Pack Spec", href: "/about/baby-pack-spec", id: "baby-pack-spec" },
   ];
 
   React.useEffect(() => {
@@ -25,11 +27,11 @@ export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHero
           return;
         }
       }
-      if (activeTab === "Board of Trustees") {
-        const el = document.getElementById("board-of-trustees");
+      if (activeTab === "Packing Days") {
+        const el = document.getElementById("packing-days");
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else if (activeTab === "Founding Story") {
-        const el = document.getElementById("founding-story");
+      } else if (activeTab === "Baby Pack Spec") {
+        const el = document.getElementById("baby-pack-spec");
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
@@ -37,18 +39,21 @@ export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHero
 
   return (
     <section className="relative w-full overflow-hidden bg-[#fdfafc] min-h-[480px] sm:min-h-[510px] md:min-h-[530px] flex flex-col justify-between">
-      {/* Background Image on Right with Smooth Fade */}
+      {/* Background Graphic on Right with Pink Lens Artwork */}
       <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] pointer-events-none z-0">
-        <Image
-          src="/assets/images/who-we-are-hero-bg.webp"
-          alt="Care Packs - The people behind the packs"
-          fill
-          priority
-          className="object-cover object-right opacity-90"
-        />
-        {/* Gradients to seamlessly blend image into background and text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fdfafc] via-[#fdfafc]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fdfafc]/30 via-transparent to-[#fdfafc]" />
+        <div className="relative w-full h-full">
+          <Image
+            src="/assets/images/how_we_work__screenshot_2026-07-25_190912_2__58_3813.webp"
+            alt="How We Work - Glass prisms"
+            fill
+            priority
+            className="object-cover object-right opacity-80"
+          />
+          {/* Pink wash & gradient overlays to achieve exact Figma aesthetic */}
+          <div className="absolute inset-0 bg-[#ec008c]/15 mix-blend-color" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fdfafc] via-[#fdfafc]/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#fdfafc]/30 via-transparent to-[#fdfafc]" />
+        </div>
       </div>
 
       {/* Main Content Container */}
@@ -62,12 +67,12 @@ export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHero
 
           {/* Hero Title */}
           <h1 className="text-[34px] sm:text-[40px] md:text-[46px] lg:text-[48px] font-medium text-[#1b1b1b] leading-[1.18] tracking-tight mb-5 max-w-[620px]">
-            The people behind<br />the packs
+            From corporate goodwill<br />to a family&apos;s front door
           </h1>
 
           {/* Hero Description */}
           <p className="text-[15.5px] sm:text-[16px] leading-[28px] text-[#3a3a3f] max-w-[580px] mb-8 sm:mb-12">
-            Care Packs was founded by senior professionals from banking, technology, law and healthcare who wanted a more direct way to turn corporate goodwill into everyday support. Meet the trustees and the story behind the charity.
+            See how a council referral becomes a packing day, and a packing day becomes a pack in someone&apos;s hands the model behind every number on this site.
           </p>
         </div>
 
@@ -75,23 +80,17 @@ export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHero
         <div className="w-full border-b border-[#ec008c] pb-3 flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar mt-auto">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.label;
-            const targetId =
-              tab.label === "Our Purpose"
-                ? "our-purpose"
-                : tab.label === "Board of Trustees"
-                ? "board-of-trustees"
-                : "founding-story";
 
             return (
               <Link
                 key={tab.label}
                 href={tab.href}
                 onClick={(e) => {
-                  const el = document.getElementById(targetId);
+                  const el = document.getElementById(tab.id);
                   if (el) {
                     e.preventDefault();
                     el.scrollIntoView({ behavior: "smooth", block: "start" });
-                    window.history.pushState(null, "", `#${targetId}`);
+                    window.history.pushState(null, "", `#${tab.id}`);
                   }
                 }}
                 className={`text-[14px] font-medium px-4 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${
