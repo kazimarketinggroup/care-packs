@@ -14,7 +14,7 @@ export default function DonationModal({
   isOpen,
   onClose,
   defaultPack = "baby",
-  defaultAmount = "7.89",
+  defaultAmount = "10",
 }: DonationModalProps) {
   const [frequency, setFrequency] = useState<"monthly" | "one-off">("monthly");
   const [pack, setPack] = useState(defaultPack);
@@ -95,7 +95,7 @@ export default function DonationModal({
             </h3>
             <p className="mt-3 text-[15px] leading-[24px] text-[#4a4a53] max-w-[400px]">
               Your generous {frequency} contribution of{" "}
-              <strong className="text-[#ec008c]">£{amount || "7.89"}</strong> will put
+              <strong className="text-[#ec008c]">£{amount || "10"}</strong> will put
               essential care items straight into the hands of a local family in need.
             </p>
             <div className="mt-6 p-4 bg-[#fff4fb] rounded-[12px] border border-[#fcdfed] text-left text-[13.5px] text-[#3a3a3f]">
@@ -163,7 +163,7 @@ export default function DonationModal({
               {/* Tier 1: Baby Pack */}
               <button
                 type="button"
-                onClick={() => handleSelectTier("baby", "7.89")}
+                onClick={() => handleSelectTier("baby", "10")}
                 className={`p-3 rounded-[12px] border text-left flex flex-col justify-between transition-all ${
                   pack === "baby"
                     ? "border-[#ec008c] bg-[#fff6fc] ring-2 ring-[#ec008c]/20"
@@ -174,7 +174,7 @@ export default function DonationModal({
                   Baby Pack
                 </span>
                 <span className="text-[20px] font-extrabold text-[#1b1b1b] mt-1">
-                  £7.89
+                  £10
                 </span>
                 <span className="text-[10.5px] text-gray-500 mt-1 leading-tight">
                   Wipes &amp; essentials
@@ -266,7 +266,7 @@ export default function DonationModal({
                 ) : (
                   <>
                     <ShieldCheck className="w-4 h-4" />
-                    <span>Complete Donation · £{amount || "7.89"}</span>
+                    <span>Complete Donation · £{amount || "10"}</span>
                   </>
                 )}
               </button>

@@ -42,7 +42,7 @@ export default function OurCarePacks() {
                   </h3>
                 </div>
                 <span className="text-[19px] md:text-[20px] leading-[24px] font-bold text-[#ec008c]">
-                  £7.89
+                  £10
                 </span>
               </div>
               <p className="mt-4 text-[15px] md:text-[16px] leading-[26px] md:leading-[28px] font-normal text-[#3a3a3f]">

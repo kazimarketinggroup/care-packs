@@ -115,7 +115,7 @@ export const megaMenus: Record<string, MegaMenuItem> = {
     promo: {
       type: "price",
       eyebrow: "Unit cost",
-      price: "£7.89",
+      price: "£10",
       description:
         "Eight items, fully costed, delivered to one family with a child under five.",
       cta: "Fund a baby pack",

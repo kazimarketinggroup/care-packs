@@ -131,7 +131,7 @@ export default function MiniWidget() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         defaultPack="baby"
-        defaultAmount="7.89"
+        defaultAmount="10"
       />
     </>
   );
