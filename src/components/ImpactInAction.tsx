@@ -60,7 +60,7 @@ const stories: StoryCard[] = [
     partner: "COMMUNITY PARTNERS",
     title: "Multi-Organisation Impact",
     description:
-      "Fifteen organisations collaborating in Paddington with a target of more than 5,000 packs in a single day.",
+      "Fifteen organisations collaborating in Paddington with a target of more than 4,500 packs in a single day.",
     image: "/assets/images/Copy_of_DSC08711_1_21_1753.webp",
   },
 ];

@@ -77,7 +77,7 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       title: "Early years poverty: families with children under five",
       description:
         "One fully costed pack for children under five. Distribution runs entirely through local authority referral.",
-      cta: "Read the pack specification",
+      cta: "Donate Now",
       href: "/about/baby-pack-specification",
     },
   },
@@ -159,7 +159,7 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       title: "No cost to the authority",
       description:
         "Eight items, fully costed, delivered to one family with a child under five.",
-      cta: "Authority information",
+      cta: "Donate Now",
       href: "/for-councils/authority-information",
     },
   },
@@ -201,7 +201,7 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       subheading: "Corporate Partnerships",
       description:
         "Book a team day, sponsor packs, or become a year-round partner.",
-      cta: "Learn More",
+      cta: "Meet Our Partners",
       href: "/get-involved/corporate-partnerships",
     },
   },
@@ -238,11 +238,11 @@ export const megaMenus: Record<string, MegaMenuItem> = {
     ],
     promo: {
       type: "default",
-      eyebrow: "Reporting",
-      title: "Quarterly figures for every corporate partner",
+      eyebrow: "Our Partners",
+      title: "Making an Impact Together",
       description:
-        "Packs funded, packs distributed, referring authorities and volunteer hours.",
-      cta: "Partnership reporting",
+        "Businesses, charities, local authorities and community organisations working together to provide practical support for families experiencing poverty.",
+      cta: "Meet Our Partners",
       href: "/impact/partnership-reporting",
     },
   },
@@ -273,7 +273,7 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       eyebrow: "Upcoming Event",
       title: "Packathon Challenge  2026",
       description:
-        "Fifteen organisations. One hall in Paddington. A target of more than 5,000 packs in a single day. Team places are allocated on a first-come basis.",
+        "Fifteen organisations. One hall in Paddington. A target of more than 4,500 packs in a single day. Team places are allocated on a first-come basis.",
       dateLocation: "13 October 2026 · Porchester Hall",
       href: "/news-events/packathon-challenge-2026",
     },

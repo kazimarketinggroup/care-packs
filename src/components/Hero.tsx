@@ -77,7 +77,7 @@ export default function Hero() {
                 onClick={handleFundPackClick}
                 className="w-[162px] h-[42px] inline-flex items-center justify-center bg-white hover:bg-[#f8f8f9] active:scale-[0.98] text-[#1b1b1b] border border-[#1b1b1b] font-semibold text-[14.5px] rounded-[6px] shadow-sm transition-all duration-150 cursor-pointer"
               >
-                Fund a pack - £8
+                Fund a pack - £10
               </button>
             </div>
           </div>

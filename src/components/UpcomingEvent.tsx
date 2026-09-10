@@ -26,7 +26,7 @@ export default function UpcomingEvent() {
                 Packathon 2026
               </h2>
               <p className="mt-4 text-[16px] leading-[28px] font-normal text-[#1b1b1b] max-w-[580px]">
-                Fifteen organisations. One hall in Paddington. A target of more than 5,000 packs in a single day. Team places are allocated on a first-come basis.
+                Fifteen organisations. One hall in Paddington. A target of more than 4,500 packs in a single day. Team places are allocated on a first-come basis.
               </p>
             </div>
 
@@ -34,10 +34,10 @@ export default function UpcomingEvent() {
             <div className="flex flex-col w-full max-w-[437px] lg:justify-self-end">
               {/* Dark Box with 3 Stats */}
               <div className="bg-[#1b1b1b] text-white rounded-[10px] px-3.5 sm:px-6 py-5 flex items-center justify-between shadow-sm">
-                {/* Stat 1: 5,000+ */}
+                {/* Stat 1: 4,500+ */}
                 <div className="flex flex-col">
                   <span className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">
-                    5,000+
+                    4,500+
                   </span>
                   <span className="text-[10.5px] sm:text-[12px] leading-[14px] sm:leading-[16px] font-normal text-gray-300 uppercase tracking-wider">
                     pack target

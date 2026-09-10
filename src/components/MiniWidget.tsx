@@ -24,11 +24,10 @@ export default function MiniWidget() {
     <>
       <div
         id="donation-widget"
-        className={`w-full max-w-[529px] bg-white/90 backdrop-blur-md rounded-[16px] pt-[44px] pb-[43px] px-[30px] shadow-[0_20px_45px_-12px_rgba(0,0,0,0.06),0_0_0_1px_rgba(222,222,226,0.5)] relative z-10 transition-all duration-500 scroll-mt-24 ${
-          isHighlighted
+        className={`w-full max-w-[529px] bg-white/90 backdrop-blur-md rounded-[16px] pt-[44px] pb-[43px] px-[30px] shadow-[0_20px_45px_-12px_rgba(0,0,0,0.06),0_0_0_1px_rgba(222,222,226,0.5)] relative z-10 transition-all duration-500 scroll-mt-24 ${isHighlighted
             ? "ring-4 ring-[#ec008c] ring-offset-4 ring-offset-white animate-pulse-glow"
             : ""
-        }`}
+          }`}
       >
         {/* Top Row: Title & Secure Badge (No lock icon, exact Figma) */}
         <div className="flex items-center justify-between">
@@ -49,11 +48,10 @@ export default function MiniWidget() {
           <button
             type="button"
             onClick={() => setSelectedPack("baby")}
-            className={`h-[36px] w-[164px] flex-shrink-0 whitespace-nowrap rounded-full flex items-center justify-center gap-2.5 transition-all ${
-              selectedPack === "baby"
+            className={`h-[36px] w-[164px] flex-shrink-0 whitespace-nowrap rounded-full flex items-center justify-center gap-2.5 transition-all ${selectedPack === "baby"
                 ? "bg-[#ec008c] text-white shadow-sm"
                 : "bg-[#454545]/5 text-[#6f6f77] hover:text-[#1b1b1b]"
-            }`}
+              }`}
           >
             <span className="text-[13px] font-bold tracking-normal whitespace-nowrap">
               P1-Baby Pack
@@ -104,7 +102,7 @@ export default function MiniWidget() {
             />
           </div>
           <div className="text-[20px] leading-[19px] font-semibold text-[#1b1b1b] tracking-normal">
-            £7.89 funds a baby pack
+            £10 a month assembles 1 baby pack
           </div>
         </div>
 

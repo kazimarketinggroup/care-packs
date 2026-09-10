@@ -32,7 +32,7 @@ export default function FoundingStorySection() {
 
             {/* Paragraph 3 */}
             <p className="text-[15px] sm:text-[16px] leading-[26px] text-[#4a4a53] mb-8">
-              By the end of 2025, Care Packs had raised £92,010, built 5,273 packs, and mobilised 548 volunteers from 144 companies across four local authority partnerships. Packathon 2026, on 13 October at Porchester Hall, now targets over 5,000 packs in a single afternoon.
+              By the end of 2025, Care Packs had raised £92,010, built 5,273 packs, and mobilised 548 volunteers from 144 companies across four local authority partnerships. Packathon 2026, on 13 October at Porchester Hall, now targets over 4,500 packs in a single afternoon.
             </p>
 
             {/* Strategic Assessment Quote Callout */}
