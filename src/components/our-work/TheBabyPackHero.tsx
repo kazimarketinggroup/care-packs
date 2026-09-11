@@ -68,16 +68,7 @@ export default function TheBabyPackHero({
               <button
                 type="button"
                 onClick={() => {
-                  const el = document.getElementById("how-it-is-costed");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth", block: "start" });
-                  } else {
-                    const widget = document.getElementById("donation-widget");
-                    if (widget) {
-                      widget.scrollIntoView({ behavior: "smooth", block: "center" });
-                      window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
-                    }
-                  }
+                  window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
                 }}
                 className="px-6 h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[13px] sm:text-[13.5px] font-bold uppercase tracking-wider rounded-[5px] flex items-center justify-center transition-colors shadow-sm cursor-pointer"
               >

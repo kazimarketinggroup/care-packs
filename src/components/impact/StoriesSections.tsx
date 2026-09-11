@@ -22,43 +22,44 @@ export function StoriesHero() {
 
   return (
     <section className="w-full relative overflow-hidden">
-      {/* Hero Header */}
-      <div className="relative w-full bg-[#1b1b1b] min-h-[420px] md:min-h-[480px] flex flex-col justify-center">
+      {/* Hero Header with Background Image & Dark Gradient Overlay */}
+      <div className="relative w-full bg-[#1b1b1b] min-h-[380px] sm:min-h-[440px] md:min-h-[490px] flex flex-col justify-center">
         <Image
           src="/assets/images/stories__community_impact__58_4745.webp"
           alt="In the words of the people who were there"
           fill
-          className="object-cover object-center opacity-45 mix-blend-luminosity"
+          className="object-cover object-center select-none"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/85" />
+        {/* Subtle dark gradient overlay preserving full image color and ensuring text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35" />
 
-        <div className="relative z-10 max-w-[1220px] mx-auto px-4 md:px-6 py-12 md:py-16 w-full flex flex-col items-center text-center">
-          <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-3">
+        <div className="relative z-10 max-w-[1220px] mx-auto px-4 md:px-6 py-12 md:py-16 w-full flex flex-col items-start text-left">
+          <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-white/90 uppercase mb-3 sm:mb-4">
             OUR IMPACT
           </span>
-          <h1 className="text-[32px] sm:text-[42px] md:text-[48px] leading-[1.15] font-semibold text-white max-w-[850px] mb-4">
+          <h1 className="text-[32px] sm:text-[42px] md:text-[48px] leading-[1.15] font-semibold text-white max-w-[560px] mb-4">
             In the words of the people who were there
           </h1>
-          <p className="text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] text-white/80 max-w-[700px]">
+          <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-[1.6] text-white/90 max-w-[580px]">
             Councils, volunteers and corporate partners on what a packing day and a delivery actually looked like.
           </p>
         </div>
       </div>
 
-      {/* Pill Navigation Bar */}
-      <div className="w-full bg-white border-b border-[#ececec] py-3 sticky top-[72px] z-30 shadow-sm">
-        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
+      {/* Sub-tab Pill Navigation Bar */}
+      <div className="w-full bg-white border-b border-[#ec008c] py-3 sm:py-3.5 sticky top-[72px] z-30 shadow-xs">
+        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
           {tabs.map((tab) => {
             const isActive = selectedTab === tab.label;
             return (
               <button
                 key={tab.id}
                 onClick={() => handleTabClick(tab)}
-                className={`px-4 sm:px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-5 py-2 rounded-full text-[13.5px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? "bg-[#ec008c] text-white shadow-sm"
-                    : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
+                    : "bg-transparent hover:bg-pink-50/50 text-[#1b1b1b] hover:text-[#ec008c]"
                 }`}
               >
                 {tab.label}

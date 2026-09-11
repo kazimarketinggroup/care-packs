@@ -9,54 +9,57 @@ export default function GalleryView() {
   const [activeTab, setActiveTab] = useState<GalleryTab>("packathon-2025");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
-  const packathonImages = [
+  const packathonColumn1 = [
     {
-      src: "/assets/images/gallery__rectangle_90__153_4469.webp",
+      src: "/assets/images/volunteer_with_us__dsc00064__1__1__155_6206.webp",
       alt: "Team celebrating in pink shirts with trophy",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      src: "/assets/images/gallery__rectangle_91__153_4471.webp",
-      alt: "Volunteer speaking into microphone",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[3/4]",
+      aspect: "aspect-[1.44/1]",
     },
     {
       src: "/assets/images/gallery__rectangle_93__153_4467.webp",
-      alt: "Packed audience in hall listening to presentation",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      src: "/assets/images/gallery__rectangle_94__153_4470.webp",
-      alt: "Corporate team around stacked boxes",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[4/3]",
-    },
-    {
-      src: "/assets/images/gallery__rectangle_95__153_4472.webp",
-      alt: "Care Packs stacked neatly in rows",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-square",
-    },
-    {
-      src: "/assets/images/gallery__rectangle_96__153_4474.webp",
-      alt: "Panel discussion with leaders on stage",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[4/3]",
+      alt: "Team cheering with arms raised behind circle of boxes",
+      aspect: "aspect-[1.44/1]",
     },
     {
       src: "/assets/images/gallery__rectangle_97__153_4468.webp",
-      alt: "Packing table assembly session",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[4/3]",
+      alt: "Volunteers packing care boxes in hall with music screen",
+      aspect: "aspect-[1.44/1]",
+    },
+  ];
+
+  const packathonColumn2 = [
+    {
+      src: "/assets/images/gallery__rectangle_90__153_4469.webp",
+      alt: "Volunteer speaking into microphone",
+      aspect: "aspect-[0.67/1]", // Exact Figma tall portrait: 246 x 368
+    },
+    {
+      src: "/assets/images/gallery__rectangle_95__153_4472.webp",
+      alt: "Care Packs stacked neatly in circular spiral formation on floor",
+      aspect: "aspect-[0.89/1]", // Exact Figma: 246 x 276
     },
     {
       src: "/assets/images/gallery__rectangle_102__153_4473.webp",
-      alt: "Folding corrugated cardboard care boxes",
-      span: "col-span-1 md:col-span-1",
-      aspect: "aspect-[4/3]",
+      alt: "Hands folding corrugated cardboard flatpack care boxes",
+      aspect: "aspect-[1.23/1]", // Exact Figma: 246 x 200
+    },
+  ];
+
+  const packathonColumn3 = [
+    {
+      src: "/assets/images/gallery__rectangle_91__153_4471.webp",
+      alt: "Audience seated listening to presentation in hall",
+      aspect: "aspect-[1.86/1]", // Exact Figma: 512 x 276
+    },
+    {
+      src: "/assets/images/gallery__rectangle_94__153_4470.webp",
+      alt: "Panel discussion with leaders on stage",
+      aspect: "aspect-[1.86/1]", // Exact Figma: 512 x 276
+    },
+    {
+      src: "/assets/images/gallery__rectangle_96__153_4474.webp",
+      alt: "Volunteers packing care bottles and boxes at table",
+      aspect: "aspect-[1.86/1]", // Exact Figma: 512 x 276
     },
   ];
 
@@ -65,104 +68,75 @@ export default function GalleryView() {
     alt: `Cisco Event volunteer packing photo ${i + 1}`,
   }));
 
-  const launchEventImages = [
-    {
-      src: "/assets/images/care-packs-launch-event-1.webp",
-      alt: "Care Packs Launch Event founders and trustees",
-    },
-    {
-      src: "/assets/images/care-packs-launch-event-2.webp",
-      alt: "Volunteer with stacked boxes at launch event",
-    },
-    {
-      src: "/assets/images/our_impact__care_packs_launch_event__58_1626.webp",
-      alt: "Launch event packing floor view",
-    },
-    {
-      src: "/assets/images/Copy_of_DSC08711_1_21_1753.webp",
-      alt: "All volunteers group photo at Care Packs launch",
-    },
-    {
-      src: "/assets/images/Copy_of_DSC08607_1_21_1659.webp",
-      alt: "Launch event presentation and stage",
-    },
-    {
-      src: "/assets/images/DSC08980_1_21_1648.webp",
-      alt: "Volunteers receiving awards and recognition",
-    },
-    {
-      src: "/assets/images/Rectangle_12_21_1632.webp",
-      alt: "Boxes ready for council distribution",
-    },
-    {
-      src: "/assets/images/stories__community_impact__58_4745.webp",
-      alt: "Launch event exhibition display table",
-    },
-  ];
+  const launchEventImages = Array.from({ length: 16 }, (_, i) => ({
+    src: `/assets/images/launch-event-${i + 1}.webp`,
+    alt: `Care Packs Launch Event photo ${i + 1}`,
+  }));
 
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative w-full bg-[#f8f6f7] overflow-hidden pt-12 pb-10 md:py-16">
-        <div className="absolute inset-0 opacity-25">
+      <section className="relative w-full bg-white overflow-hidden pt-12 pb-12 md:py-16">
+        <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/images/gallery-hero-bg.webp"
+            src="/assets/images/gallery-hero-clean-hd.webp"
             alt="Care packs built"
             fill
-            className="object-cover object-center"
+            className="object-cover object-right sm:object-[85%_center]"
             priority
           />
+          {/* Directional gradient: clean white on the left for text, transparent on the right to reveal the pack box */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-45% to-white/10 sm:to-transparent" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white" />
 
-        <div className="relative z-10 max-w-[1220px] mx-auto px-4 md:px-6 flex flex-col items-center text-center">
-          <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-3">
+        <div className="relative z-10 max-w-[1220px] mx-auto px-4 md:px-6 flex flex-col items-start text-left">
+          <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-3 block">
             GALLERY
           </span>
-          <h1 className="text-[32px] sm:text-[42px] md:text-[48px] leading-[1.15] font-semibold text-[#1b1b1b] max-w-[800px] mb-4">
+          <h1 className="text-[32px] sm:text-[42px] md:text-[46px] leading-[1.15] font-bold text-[#1b1b1b] max-w-[620px] mb-4 tracking-tight">
             Care Packs, where the packs get built, and what changed this quarter
           </h1>
-          <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-[1.6] text-[#4a4a53] max-w-[720px] mb-8">
+          <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-[1.6] text-[#4a4a53] max-w-[560px] mb-7">
             Packing days, Packathons and delivery days the moments behind the numbers, from our first 300-pack launch to corporate teams building hundreds in an afternoon.
           </p>
 
           {/* Magenta Stat Block */}
-          <div className="w-full max-w-[720px] bg-[#ec008c] rounded-[12px] p-5 grid grid-cols-2 sm:grid-cols-4 gap-4 text-white text-center shadow-md">
+          <div className="w-full max-w-[640px] bg-[#ec008c] rounded-[14px] p-5 sm:p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-white text-center shadow-[0_8px_30px_rgba(236,0,140,0.18)]">
             <div>
-              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5">
+              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
                 548
               </div>
-              <div className="text-[12px] text-white/90">Volunteers in 2025</div>
+              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Volunteers in 2025</div>
             </div>
             <div>
-              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5">
+              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
                 2,163
               </div>
-              <div className="text-[12px] text-white/90">Volunteer hours</div>
+              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Volunteer hours</div>
             </div>
             <div>
-              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5">
+              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
                 144
               </div>
-              <div className="text-[12px] text-white/90">Companies involved</div>
+              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Companies involved</div>
             </div>
             <div>
-              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5">
+              <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
                 ~400
               </div>
-              <div className="text-[12px] text-white/90">Packs from a team of 20</div>
+              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Packs from a team of 20</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Interactive Tabs Bar */}
-      <div className="w-full bg-white border-b border-[#ececec] py-3.5 sticky top-[72px] z-30 shadow-sm">
-        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
+      <div className="w-full bg-white border-b border-[#fce7f3] py-3.5 sticky top-[72px] z-30 shadow-xs">
+        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
           <button
             type="button"
             onClick={() => setActiveTab("packathon-2025")}
-            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "packathon-2025"
                 ? "bg-[#ec008c] text-white shadow-sm"
                 : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
@@ -173,7 +147,7 @@ export default function GalleryView() {
           <button
             type="button"
             onClick={() => setActiveTab("cisco-event")}
-            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "cisco-event"
                 ? "bg-[#ec008c] text-white shadow-sm"
                 : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
@@ -184,7 +158,7 @@ export default function GalleryView() {
           <button
             type="button"
             onClick={() => setActiveTab("care-packs-launch")}
-            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "care-packs-launch"
                 ? "bg-[#ec008c] text-white shadow-sm"
                 : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
@@ -198,24 +172,65 @@ export default function GalleryView() {
       {/* Main Gallery Grids */}
       <section className="w-full bg-white py-12 md:py-16">
         <div className="max-w-[1220px] mx-auto px-4 md:px-6">
-          {/* 1. Packathon 2025 Grid */}
+          {/* 1. Packathon 2025 Grid - Proportional Masonry Columns matching Figma exactly */}
           {activeTab === "packathon-2025" && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {packathonImages.map((img, i) => (
-                <div
-                  key={i}
-                  onClick={() => setLightboxImage(img.src)}
-                  className={`group relative rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-100 ${img.aspect}`}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-[397fr_246fr_512fr] gap-4 sm:gap-5 items-start">
+              {/* Column 1 (397fr) */}
+              <div className="flex flex-col gap-4 sm:gap-5">
+                {packathonColumn1.map((img, i) => (
+                  <div
+                    key={`col1-${i}`}
+                    onClick={() => setLightboxImage(img.src)}
+                    className={`group relative rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-100 ${img.aspect}`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Column 2 (246fr) */}
+              <div className="flex flex-col gap-4 sm:gap-5">
+                {packathonColumn2.map((img, i) => (
+                  <div
+                    key={`col2-${i}`}
+                    onClick={() => setLightboxImage(img.src)}
+                    className={`group relative rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-100 ${img.aspect}`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Column 3 (512fr) */}
+              <div className="flex flex-col gap-4 sm:gap-5">
+                {packathonColumn3.map((img, i) => (
+                  <div
+                    key={`col3-${i}`}
+                    onClick={() => setLightboxImage(img.src)}
+                    className={`group relative rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-100 ${img.aspect}`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
@@ -240,14 +255,14 @@ export default function GalleryView() {
             </div>
           )}
 
-          {/* 3. Care Packs Launch Event Grid */}
+          {/* 3. Care Packs Launch Event 4x4 Grid matching Figma exactly */}
           {activeTab === "care-packs-launch" && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
               {launchEventImages.map((img, idx) => (
                 <div
                   key={idx}
                   onClick={() => setLightboxImage(img.src)}
-                  className="group relative aspect-[4/3] rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-100 border border-gray-100"
+                  className="group relative aspect-square rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-100 border border-gray-100"
                 >
                   <Image
                     src={img.src}

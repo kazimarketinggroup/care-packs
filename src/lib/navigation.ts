@@ -201,7 +201,7 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       subheading: "Corporate Partnerships",
       description:
         "Book a team day, sponsor packs, or become a year-round partner.",
-      cta: "Meet Our Partners",
+      cta: "Partners & Sponsors",
       href: "/get-involved/corporate-partnerships",
     },
   },
@@ -242,8 +242,8 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       title: "Making an Impact Together",
       description:
         "Businesses, charities, local authorities and community organisations working together to provide practical support for families experiencing poverty.",
-      cta: "Meet Our Partners",
-      href: "/impact/partnership-reporting",
+      cta: "Partners & Sponsors",
+      href: "/get-involved/corporate-partnerships",
     },
   },
   "News & events": {
@@ -251,11 +251,11 @@ export const megaMenus: Record<string, MegaMenuItem> = {
     columns: [
       {
         title: "EVENTS",
-        href: "/news-events/events",
+        href: "/news-events",
         links: [
-          { label: "Upcoming event", href: "/news-events/upcoming-event" },
-          { label: "Public Sessions", href: "/news-events/public-sessions" },
-          { label: "Announcements", href: "/news-events/announcements" },
+          { label: "Upcoming event", href: "/news-events#upcoming-event" },
+          { label: "Public Sessions", href: "/news-events#public-sessions" },
+          { label: "Announcements", href: "/news-events#announcements" },
         ],
       },
       {

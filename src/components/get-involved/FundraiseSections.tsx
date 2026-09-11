@@ -46,15 +46,7 @@ export function FundPacksDirectlySection() {
   ];
 
   const handleDonate = () => {
-    const widget = document.getElementById("donation-widget");
-    if (widget) {
-      widget.scrollIntoView({ behavior: "smooth", block: "center" });
-      window.dispatchEvent(
-        new CustomEvent("set-donation-amount", { detail: { amount: selectedAmount } })
-      );
-    } else {
-      alert(`Thank you! Ready to proceed with £${selectedAmount} donation.`);
-    }
+    window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: selectedAmount } }));
   };
 
   return (
@@ -164,7 +156,7 @@ export function FundPacksDirectlySection() {
               {items.map((item, i) => (
                 <div key={i} className="py-2.5 flex items-center justify-between text-[14px]">
                   <span className="text-[#333339]">{item.name}</span>
-                  <span className="text-[#787882] font-mono">{item.cost}</span>
+                  <span className="text-[#787882] font-medium">{item.cost}</span>
                 </div>
               ))}
               <div className="pt-3.5 flex items-center justify-between text-[16px] font-bold">

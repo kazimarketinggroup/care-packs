@@ -2,11 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import DonationModal from "./DonationModal";
 
 export default function MiniWidget() {
   const [selectedPack, setSelectedPack] = useState<"baby" | "tech" | "crisis">("baby");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHighlighted, setIsHighlighted] = useState(false);
 
   useEffect(() => {
@@ -119,20 +117,14 @@ export default function MiniWidget() {
         {/* Bottom CTA Button */}
         <button
           type="button"
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
+          }}
           className="w-full bg-[#ec008c] hover:bg-[#d6007e] active:scale-[0.99] text-white font-bold text-[14.85px] leading-[18px] h-[42px] mt-[35px] rounded-[5px] shadow-sm hover:shadow-md transition-all flex items-center justify-center cursor-pointer"
         >
           Fund a pack
         </button>
       </div>
-
-      {/* Interactive Modal */}
-      <DonationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        defaultPack="baby"
-        defaultAmount="10"
-      />
     </>
   );
 }

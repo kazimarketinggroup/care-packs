@@ -99,7 +99,7 @@ export default function OurImpact() {
                 key={stat.label}
                 className="bg-white rounded-[10px] min-h-[110px] md:h-[116px] p-5 sm:p-6 lg:p-[24px] flex flex-col justify-center shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
               >
-                <div className="text-[26px] sm:text-[28px] md:text-[30px] leading-[36px] md:leading-[40px] font-semibold text-black tracking-tight font-mono">
+                <div className="text-[26px] sm:text-[28px] md:text-[30px] leading-[36px] md:leading-[40px] font-semibold text-black tracking-tight font-[family-name:var(--font-inter)]">
                   {formatNumber(counts[idx], stat.prefix, stat.suffix)}
                 </div>
                 <div className="mt-1.5 md:mt-2 text-[14px] md:text-[15px] leading-[20px] font-normal text-black">

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,6 +44,13 @@ const involvedCards = [
 ];
 
 export default function GetInvolvedSection() {
+  const handleCardClick = (card: typeof involvedCards[0], e: React.MouseEvent) => {
+    if (card.category === "DONATE") {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
+    }
+  };
+
   return (
     <section id="get-involved" className="w-full bg-white pt-[50px] pb-[60px]">
       <div className="max-w-[1216px] mx-auto px-4 md:px-6 lg:px-0">
@@ -91,6 +100,7 @@ export default function GetInvolvedSection() {
                 <div className="mt-5">
                   <Link
                     href={card.href}
+                    onClick={(e) => handleCardClick(card, e)}
                     className="text-[15px] font-semibold text-[#ec008c] hover:text-[#d6007e] inline-flex items-center gap-1 transition-colors"
                   >
                     {card.linkText}
@@ -104,3 +114,4 @@ export default function GetInvolvedSection() {
     </section>
   );
 }
+

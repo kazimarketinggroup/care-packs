@@ -37,7 +37,7 @@ const HERO_CONFIGS: Record<GetInvolvedVariant, VariantConfig> = {
     subtitle:
       "No experience needed, no minimum commitment. Join a public packing day, run a collection point, or just tell us when you're free.",
     bgImage:
-      "/assets/images/volunteer_with_us__volunteers_assembling_care_packs_at_a_packing_day__126_323.webp",
+      "/assets/images/volunteer_with_us__dsc00064__1__1__155_6206.webp",
     stats: [
       { value: "548", label: "Volunteers in 2025" },
       { value: "2,163", label: "Volunteer hours" },
@@ -135,13 +135,14 @@ export default function GetInvolvedHero({
           {config.bgImage && (
             <Image
               src={config.bgImage}
-              alt="Volunteers assembling care packs"
+              alt="Care Packs volunteers team"
               fill
-              className="object-cover object-center opacity-40 mix-blend-luminosity"
+              className="object-cover object-center select-none"
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+          {/* Subtle dark tint to preserve vibrant pink shirts while keeping white typography and stats crisp */}
+          <div className="absolute inset-0 bg-black/45 sm:bg-black/50" />
 
           <div className="relative z-10 max-w-[1220px] mx-auto px-4 md:px-6 py-12 md:py-16 w-full flex flex-col items-center text-center">
             <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-4">
@@ -150,12 +151,12 @@ export default function GetInvolvedHero({
             <h1 className="text-[32px] sm:text-[40px] md:text-[48px] leading-[1.15] font-semibold text-white max-w-[850px] mb-4">
               {config.title}
             </h1>
-            <p className="text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] text-white/80 max-w-[720px] mb-8">
+            <p className="text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] text-white/90 max-w-[720px] mb-8">
               {config.subtitle}
             </p>
 
-            {/* Translucent Glass Stat Bar */}
-            <div className="w-full max-w-[780px] bg-white/10 backdrop-blur-md rounded-[12px] border border-white/20 p-4 sm:p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-white">
+            {/* Translucent Pink Glass Stat Bar */}
+            <div className="w-full max-w-[780px] bg-[#ec008c]/25 backdrop-blur-md rounded-[12px] border border-white/20 p-4 sm:p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-white">
               {config.stats.map((stat, i) => (
                 <div
                   key={i}
@@ -230,10 +231,21 @@ export default function GetInvolvedHero({
         </div>
       )}
 
-      {/* Variant 3: Partner With Us (Soft Pink ambient hero) */}
+      {/* Variant 3: Partner With Us (Ambient hero with Figma background) */}
       {variant === "partner-with-us" && (
-        <div className="relative w-full bg-gradient-to-b from-[#fff0f6] via-[#ffe8f2]/60 to-white pt-12 pb-10 md:py-16 flex flex-col justify-center">
-          <div className="max-w-[1220px] mx-auto px-4 md:px-6 w-full flex flex-col items-center text-center">
+        <div className="relative w-full overflow-hidden bg-[#fff0f6] pt-12 pb-10 md:py-16 flex flex-col justify-center">
+          {config.bgImage && (
+            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+              <Image
+                src={config.bgImage}
+                alt=""
+                fill
+                priority
+                className="object-cover object-center -scale-x-100 select-none"
+              />
+            </div>
+          )}
+          <div className="relative z-10 max-w-[1220px] mx-auto px-4 md:px-6 w-full flex flex-col items-center text-center">
             <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-3">
               {config.eyebrow}
             </span>
@@ -269,18 +281,18 @@ export default function GetInvolvedHero({
       )}
 
       {/* Sub-tab Pill Navigation Bar */}
-      <div className="w-full bg-white border-b border-[#ececec] py-3 sticky top-[72px] z-30 shadow-sm">
-        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
+      <div className="w-full bg-white border-b border-[#ec008c] py-3 sm:py-3.5 sticky top-[72px] z-30 shadow-xs">
+        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
           {config.tabs.map((tab) => {
             const isActive = selectedTab === tab.label;
             return (
               <button
                 key={tab.id}
                 onClick={() => handleTabClick(tab)}
-                className={`px-4 sm:px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-5 py-2 rounded-full text-[13.5px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? "bg-[#ec008c] text-white shadow-sm"
-                    : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
+                    : "bg-transparent hover:bg-pink-50/50 text-[#1b1b1b] hover:text-[#ec008c]"
                 }`}
               >
                 {tab.label}

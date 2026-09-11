@@ -154,7 +154,7 @@ export function CostPerPackSection() {
               {items.map((item, idx) => (
                 <div key={idx} className="py-2.5 flex items-center justify-between text-[14px]">
                   <span className="text-[#333339]">{item.name}</span>
-                  <span className="text-[#787882] font-mono">{item.cost}</span>
+                  <span className="text-[#787882] font-medium">{item.cost}</span>
                 </div>
               ))}
               <div className="pt-3 flex items-center justify-between text-[15px] font-bold">
@@ -223,8 +223,8 @@ export function ReportingCycleSection() {
 
           <div className="relative h-[280px] sm:h-[340px] rounded-[16px] overflow-hidden shadow-md">
             <Image
-              src="/assets/images/our_impact__community_impact__58_1800.webp"
-              alt="Care Packs volunteer with packed box"
+              src="/assets/images/our_impact__care_packs_launch_event__58_1626.webp"
+              alt="Care Packs team member holding a Care Pack box"
               fill
               className="object-cover object-center"
             />

@@ -65,11 +65,7 @@ export default function ProgrammesHero({
               <button
                 type="button"
                 onClick={() => {
-                  const widget = document.getElementById("donation-widget");
-                  if (widget) {
-                    widget.scrollIntoView({ behavior: "smooth", block: "center" });
-                    window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
-                  }
+                  window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
                 }}
                 className="px-6 h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[14.5px] font-semibold rounded-[5px] flex items-center justify-center transition-colors shadow-sm cursor-pointer"
               >

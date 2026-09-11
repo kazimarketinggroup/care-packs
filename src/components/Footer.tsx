@@ -4,10 +4,12 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#1b1b1b] text-white">
-      <div className="max-w-[1220px] mx-auto px-4 md:px-6 lg:px-0 pt-[56px] pb-[28px]">
+    <footer className="w-full bg-[#1e1e1e] text-white">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-14 md:pt-16 pb-12">
+        
         {/* Top 5-Column Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[272px_170px_200px_176px_214px] lg:gap-[47px] gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
+          
           {/* Col 1: Brand Info */}
           <div className="flex flex-col">
             <Link href="/" className="inline-block transition-opacity hover:opacity-90 w-fit">
@@ -19,23 +21,23 @@ export default function Footer() {
                 className="w-[162px] h-[49px] object-contain"
               />
             </Link>
-            <p className="mt-4 text-[13.5px] leading-[21px] text-[#c9c9d0] font-normal max-w-[272px]">
+            <p className="mt-5 text-[13.5px] leading-[21px] text-[#c9c9d0] font-normal max-w-[260px]">
               Essential household packs for families living in poverty, distributed through local authority referral.
             </p>
-            <p className="mt-4 text-[13px] leading-[16px] text-[#9a9aa2] font-normal">
+            <p className="mt-4 text-[13px] leading-[16px] text-[#8e8e93] font-normal">
               Registered charity 1209874
             </p>
           </div>
 
           {/* Col 2: Our work */}
           <div>
-            <h3 className="text-[13px] leading-[16px] font-bold text-white mb-3.5">
+            <h3 className="text-[13.5px] leading-[16px] font-bold text-white mb-4">
               Our work
             </h3>
-            <ul className="space-y-[15px]">
+            <ul className="space-y-[14px]">
               <li>
                 <Link
-                  href="#the-baby-pack"
+                  href="/our-work/the-baby-pack"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   The baby pack
@@ -43,7 +45,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#phase-1a"
+                  href="/our-work/programmes"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Phase 1a: early years
@@ -51,7 +53,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#how-it-works"
+                  href="/about/how-we-work"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   How it works
@@ -59,7 +61,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#impact-reporting"
+                  href="/impact/our-impact"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Impact and reporting
@@ -70,13 +72,13 @@ export default function Footer() {
 
           {/* Col 3: For councils */}
           <div>
-            <h3 className="text-[13px] leading-[16px] font-bold text-white mb-3.5">
+            <h3 className="text-[13.5px] leading-[16px] font-bold text-white mb-4">
               For councils
             </h3>
-            <ul className="space-y-[15px]">
+            <ul className="space-y-[14px]">
               <li>
                 <Link
-                  href="#refer-family"
+                  href="/for-councils/for-council-officers"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Refer a family
@@ -84,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#partner-authority"
+                  href="/for-councils/new-authorities"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Become a partner authority
@@ -92,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#referral-criteria"
+                  href="/for-councils/for-council-officers#criteria"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Referral criteria
@@ -100,7 +102,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#data-safeguarding"
+                  href="/for-councils/working-with-us"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Data and safeguarding
@@ -111,13 +113,13 @@ export default function Footer() {
 
           {/* Col 4: Get involved */}
           <div>
-            <h3 className="text-[13px] leading-[16px] font-bold text-white mb-3.5">
+            <h3 className="text-[13.5px] leading-[16px] font-bold text-white mb-4">
               Get involved
             </h3>
-            <ul className="space-y-[15px]">
+            <ul className="space-y-[14px]">
               <li>
                 <Link
-                  href="#donate"
+                  href="/donate"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Donate
@@ -125,7 +127,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#packing-days"
+                  href="/get-involved/volunteer-with-us"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Packing days
@@ -133,7 +135,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#corporate-partnerships"
+                  href="/get-involved/corporate-partnerships"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Corporate partnerships
@@ -141,18 +143,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#our-sponsors"
+                  href="/get-involved/corporate-partnerships#sponsors"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
                   Our sponsors
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#collection-drives"
-                  className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
-                >
-                  Collection drives
                 </Link>
               </li>
             </ul>
@@ -160,80 +154,70 @@ export default function Footer() {
 
           {/* Col 5: Contact & Regulator Badge */}
           <div>
-            <h3 className="text-[13px] leading-[16px] font-bold text-white mb-3.5">
+            <h3 className="text-[13.5px] leading-[16px] font-bold text-white mb-4">
               Contact
             </h3>
-            <ul className="space-y-[15px]">
+            <ul className="space-y-[14px]">
               <li>
                 <a
-                  href="mailto:hello@carepacks.org.uk"
+                  href="mailto:hello@care-packs.org.uk"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
-                  hello@carepacks.org.uk
+                  hello@care-packs.org.uk
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:councils@carepacks.org.uk"
+                  href="mailto:councils@care-packs.org.uk"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
-                  councils@carepacks.org.uk
+                  councils@care-packs.org.uk
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:partnerships@carepacks.org.uk"
+                  href="mailto:partnerships@care-packs.org.uk"
                   className="text-[13.5px] leading-[16px] text-[#c9c9d0] hover:text-white transition-colors duration-150 inline-block"
                 >
-                  partnerships@carepacks.org.uk
+                  partnerships@care-packs.org.uk
                 </a>
               </li>
             </ul>
 
             {/* Registered with Fundraising Regulator badge */}
-            <div className="mt-[14px] w-[211px] h-[59px] border border-[#4a4a53] rounded-[2px] pt-[13px] pb-[10px] px-[14px] flex flex-col justify-center">
-              <span className="text-[10.5px] leading-[13px] text-[#9a9aa2] font-normal tracking-[0.03em] uppercase">
+            <div className="mt-5 w-[205px] border border-[#35353b] rounded-[2px] py-2.5 px-3.5 flex flex-col justify-center">
+              <span className="text-[10px] leading-[13px] text-[#8e8e93] font-semibold tracking-[0.05em] uppercase">
                 REGISTERED WITH
               </span>
-              <span className="text-[13px] leading-[16px] font-bold text-white mt-[2px]">
+              <span className="text-[13px] leading-[16px] font-bold text-white mt-1">
                 Fundraising Regulator
               </span>
             </div>
           </div>
+
         </div>
 
         {/* Bottom Legal & Copyright Bar */}
-        <div className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[12.5px] leading-[15px] text-[#9a9aa2]">
+        <div className="mt-16 md:mt-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[13px] leading-[16px] text-[#8e8e93]">
           <p className="font-normal">
             © 2026 Care Packs. Registered charity in England and Wales, number 1209874.
           </p>
-          <div className="flex flex-wrap items-center gap-[18px]">
+          <div className="flex flex-wrap items-center gap-6">
             <Link
-              href="#privacy"
+              href="/about/governance-and-policies"
               className="hover:text-white transition-colors duration-150"
             >
               Privacy
             </Link>
             <Link
-              href="#safeguarding"
+              href="/about/governance-and-policies"
               className="hover:text-white transition-colors duration-150"
             >
-              Safeguarding
-            </Link>
-            <Link
-              href="#complaints"
-              className="hover:text-white transition-colors duration-150"
-            >
-              Complaints
-            </Link>
-            <Link
-              href="#annual-report"
-              className="hover:text-white transition-colors duration-150"
-            >
-              Annual report
+              Legal
             </Link>
           </div>
         </div>
+
       </div>
     </footer>
   );

@@ -7,11 +7,7 @@ import MiniWidget from "./MiniWidget";
 export default function Hero() {
   const handleFundPackClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const widget = document.getElementById("donation-widget");
-    if (widget) {
-      widget.scrollIntoView({ behavior: "smooth", block: "center" });
-      window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
-    }
+    window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
   };
 
   return (

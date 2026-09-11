@@ -53,11 +53,7 @@ export default function OurCarePacks() {
               <button
                 type="button"
                 onClick={() => {
-                  const widget = document.getElementById("donation-widget");
-                  if (widget) {
-                    widget.scrollIntoView({ behavior: "smooth", block: "center" });
-                    window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
-                  }
+                  window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
                 }}
                 className="inline-flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] text-white text-[14px] font-semibold px-5 py-2.5 rounded-[5px] transition-all duration-200 shadow-sm hover:shadow active:scale-95 cursor-pointer"
               >

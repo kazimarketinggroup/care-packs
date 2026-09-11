@@ -44,7 +44,7 @@ export function PublicPackingDaysSection() {
           {/* Right Image */}
           <div className="w-full lg:w-5/12 relative h-[280px] sm:h-[340px] rounded-[16px] overflow-hidden shadow-sm">
             <Image
-              src="/assets/images/volunteer_with_us__dsc00064__1__1__155_6206.webp"
+              src="/assets/images/volunteer_with_us__volunteers_assembling_care_packs_at_a_packing_day__126_323.webp"
               alt="Volunteers packing care items at a community session"
               fill
               className="object-cover object-center"

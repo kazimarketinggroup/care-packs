@@ -391,13 +391,7 @@ export function SpeakToTheTeamSection() {
 /* ── Section 5: Pre-Footer CTA for New Authorities ── */
 export function NewAuthoritiesCTABanner() {
   const handleDonateClick = () => {
-    const widget = document.getElementById("donation-widget");
-    if (widget) {
-      widget.scrollIntoView({ behavior: "smooth", block: "center" });
-      window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
-    } else {
-      window.location.href = "/#donation-widget";
-    }
+    window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
   };
 
   return (

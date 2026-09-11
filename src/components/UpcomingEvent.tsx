@@ -63,10 +63,10 @@ export default function UpcomingEvent() {
                 {/* Stat 3: 1 */}
                 <div className="flex flex-col">
                   <span className="text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] font-bold">
-                    1
+                    200
                   </span>
                   <span className="text-[10.5px] sm:text-[12px] leading-[14px] sm:leading-[16px] font-normal text-gray-300 uppercase tracking-wider">
-                    day
+                    People
                   </span>
                 </div>
               </div>

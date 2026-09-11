@@ -47,11 +47,7 @@ export default function Navbar() {
 
   const handleDonateClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const widget = document.getElementById("donation-widget");
-    if (widget) {
-      widget.scrollIntoView({ behavior: "smooth", block: "center" });
-      window.dispatchEvent(new CustomEvent("highlight-donation-widget"));
-    }
+    window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
   };
 
   const currentMegaMenu = activeDropdown ? megaMenus[activeDropdown] : null;
@@ -110,13 +106,12 @@ export default function Navbar() {
 
         {/* Right: Donate CTA Button & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={handleDonateClick}
+          <Link
+            href="/donate"
             className="hidden sm:inline-flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] active:scale-[0.98] text-white font-bold text-[14.5px] px-6 h-[42px] rounded-[6px] shadow-sm transition-all duration-150 cursor-pointer"
           >
             Donate
-          </button>
+          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -249,8 +244,14 @@ export default function Navbar() {
                       </div>
                       <div className="mt-6">
                         <Link
-                          href={currentMegaMenu.promo.href || "#donation-widget"}
-                          onClick={closeDropdown}
+                          href={currentMegaMenu.promo.href || "#"}
+                          onClick={(e) => {
+                            closeDropdown();
+                            if (!currentMegaMenu.promo.href || currentMegaMenu.promo.href === "#donation-widget") {
+                              e.preventDefault();
+                              window.dispatchEvent(new CustomEvent("open-donation-modal", { detail: { amount: 10 } }));
+                            }
+                          }}
                           className="inline-flex items-center text-[13.5px] font-semibold text-[#ec008c] hover:text-[#d6007e] hover:underline transition-colors"
                         >
                           {currentMegaMenu.promo.cta}
@@ -449,16 +450,13 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <button
-              type="button"
-              onClick={(e) => {
-                setMobileMenuOpen(false);
-                handleDonateClick(e);
-              }}
+            <Link
+              href="/donate"
+              onClick={() => setMobileMenuOpen(false)}
               className="mt-3 w-full flex items-center justify-center bg-[#ec008c] hover:bg-[#d6007e] text-white font-bold text-[15px] h-[44px] rounded-[6px] shadow-sm transition-all cursor-pointer"
             >
               Donate
-            </button>
+            </Link>
           </div>
         </div>
       )}

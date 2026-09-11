@@ -137,7 +137,7 @@ export default function ImpactInAction() {
               href="#stories"
               className="bg-[#ec008c] hover:bg-[#d6007e] text-white font-semibold text-[14px] px-6 py-2.5 rounded-[7px] transition-colors shadow-sm ml-2"
             >
-              See All Stories
+              Partners & Sponsors
             </Link>
           </div>
         </div>
@@ -197,11 +197,10 @@ export default function ImpactInAction() {
               key={index}
               onClick={() => scrollToIndex(index)}
               aria-label={`Go to story ${index + 1}`}
-              className={`transition-all duration-300 rounded-full ${
-                activeIndex === index
-                  ? "w-8 h-2 bg-[#ec008c]"
-                  : "w-2 h-2 bg-[#ec008c]/30 hover:bg-[#ec008c]/60"
-              }`}
+              className={`transition-all duration-300 rounded-full ${activeIndex === index
+                ? "w-8 h-2 bg-[#ec008c]"
+                : "w-2 h-2 bg-[#ec008c]/30 hover:bg-[#ec008c]/60"
+                }`}
             />
           ))}
         </div>
