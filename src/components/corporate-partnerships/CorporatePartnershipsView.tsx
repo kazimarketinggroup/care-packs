@@ -131,65 +131,71 @@ export default function CorporatePartnershipsView() {
   return (
     <div className="w-full bg-white">
       {/* 1. Hero Section */}
-      <section className="relative w-full bg-white overflow-hidden border-b border-gray-100">
-        <div className="max-w-[1220px] mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[400px] lg:min-h-[460px] py-10 lg:py-0">
-            
-            {/* Left Column: Eyebrow, Title, Subtitle & Sub-Tabs */}
-            <div className="lg:col-span-7 flex flex-col justify-center text-left z-10">
-              <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-3 block">
-                OUR PARTNERS
-              </span>
-              <h1 className="text-[34px] sm:text-[44px] md:text-[50px] font-bold text-[#1b1b1b] tracking-tight leading-[1.12] mb-5">
-                A Gift of Hope with <br />
-                Every Pack
-              </h1>
-              <p className="text-[15px] sm:text-[16px] md:text-[16.5px] leading-[1.65] text-[#4a4a53] max-w-[500px] mb-8">
-                Care Packs turns corporate goodwill into visible, measurable support for families experiencing poverty across the UK. Explore the partners making it happen.
-              </p>
+      <section className="relative w-full bg-white overflow-hidden border-b border-[#fbcfe8]">
+        {/* Right Side Background Image - Full height, extending to top and right edges */}
+        <div className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[58%] lg:w-[60%] xl:w-[62%] h-full pointer-events-none select-none z-0 hidden sm:block">
+          <Image
+            src="/assets/images/corporate-partnerships-hero-bg.webp"
+            alt="Care Packs volunteers packing gift boxes with teddy bears"
+            fill
+            priority
+            className="object-cover object-right-top"
+          />
+          {/* Subtle soft feathering on the left and bottom */}
+          <div className="absolute inset-y-0 left-0 w-24 md:w-36 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 md:h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+        </div>
 
-              {/* Sub-Tabs */}
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("corporate-partners", "corporate")}
-                  className={`px-5 sm:px-6 py-2 rounded-full text-[13px] sm:text-[13.5px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                    activeTab === "corporate"
-                      ? "bg-[#ec008c] text-white shadow-sm"
-                      : "bg-transparent text-[#4a4a53] hover:text-[#1b1b1b] hover:bg-gray-100/70"
-                  }`}
-                >
-                  Corporate Partners/Sponsors
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("distribution-partners", "distribution")}
-                  className={`px-5 sm:px-6 py-2 rounded-full text-[13px] sm:text-[13.5px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                    activeTab === "distribution"
-                      ? "bg-[#ec008c] text-white shadow-sm"
-                      : "bg-transparent text-[#4a4a53] hover:text-[#1b1b1b] hover:bg-gray-100/70"
-                  }`}
-                >
-                  Distribution Partners
-                </button>
-              </div>
+        {/* Mobile background with white overlay so text stays readable */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 sm:hidden">
+          <Image
+            src="/assets/images/corporate-partnerships-hero-bg.webp"
+            alt=""
+            fill
+            priority
+            className="object-cover object-right"
+          />
+          <div className="absolute inset-0 bg-white/85" />
+        </div>
+
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col justify-center text-left min-h-[380px] sm:min-h-[420px] md:min-h-[460px] lg:min-h-[480px] pt-12 md:pt-14 pb-8 md:pb-10 max-w-[520px] lg:max-w-[560px]">
+            <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-3.5 block">
+              OUR PARTNERS
+            </span>
+            <h1 className="text-[34px] sm:text-[44px] md:text-[50px] lg:text-[52px] font-bold text-[#1b1b1b] tracking-tight leading-[1.12] mb-5">
+              A Gift of Hope with <br />
+              Every Pack
+            </h1>
+            <p className="text-[15px] sm:text-[16px] md:text-[16.5px] leading-[1.65] text-[#4a4a53] max-w-[480px] mb-8 sm:mb-10">
+              Care Packs turns corporate goodwill into visible, measurable support for families experiencing poverty across the UK. Explore the partners making it happen.
+            </p>
+
+            {/* Sub-Tabs */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <button
+                type="button"
+                onClick={() => scrollToSection("corporate-partners", "corporate")}
+                className={`px-5 sm:px-6 py-2 rounded-full text-[13px] sm:text-[13.5px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                  activeTab === "corporate"
+                    ? "bg-[#ec008c] text-white shadow-sm"
+                    : "bg-transparent text-[#4a4a53] hover:text-[#1b1b1b] hover:bg-gray-100/70"
+                }`}
+              >
+                Corporate Partners/Sponsors
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection("distribution-partners", "distribution")}
+                className={`px-5 sm:px-6 py-2 rounded-full text-[13px] sm:text-[13.5px] font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                  activeTab === "distribution"
+                    ? "bg-[#ec008c] text-white shadow-sm"
+                    : "bg-transparent text-[#4a4a53] hover:text-[#1b1b1b] hover:bg-gray-100/70"
+                }`}
+              >
+                Distribution Partners
+              </button>
             </div>
-
-            {/* Right Column: Hero Photo of Girls Packing Box with Teddy Bear */}
-            <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[520px] aspect-[1.55/1] rounded-[24px] overflow-hidden">
-                <Image
-                  src="/assets/images/corporate-partnerships-hero-clean-fade.webp"
-                  alt="Care Packs volunteers packing gift of hope boxes"
-                  fill
-                  priority
-                  className="object-cover object-right"
-                />
-                {/* Soft inward blend from the left and bottom */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
