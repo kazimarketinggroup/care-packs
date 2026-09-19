@@ -9,6 +9,74 @@ export default function GalleryView() {
   const [activeTab, setActiveTab] = useState<GalleryTab>("packathon-2025");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const parseTabFromHash = (hashStr: string): GalleryTab | null => {
+      const clean = hashStr.replace(/^#/, "").trim().toLowerCase();
+      if (clean === "cisco-event" || clean === "cisco") {
+        return "cisco-event";
+      }
+      if (clean === "packathon-2025" || clean === "packathon") {
+        return "packathon-2025";
+      }
+      if (
+        clean === "care-packs-launch" ||
+        clean === "care-packs-launch-event" ||
+        clean === "launch-event" ||
+        clean === "launch"
+      ) {
+        return "care-packs-launch";
+      }
+      return null;
+    };
+
+    const handleHash = (forcedHash?: string) => {
+      const targetHash = forcedHash || window.location.hash;
+      const matched = parseTabFromHash(targetHash);
+      if (matched) {
+        setActiveTab(matched);
+        const cleanId = targetHash.replace(/^#/, "");
+        requestAnimationFrame(() => {
+          const el = document.getElementById(cleanId) || document.getElementById("gallery-section");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      }
+    };
+
+    // Check immediately on mount
+    handleHash();
+
+    // Check with brief delays to catch client-side routing hash synchronization
+    const t1 = setTimeout(() => handleHash(), 50);
+    const t2 = setTimeout(() => handleHash(), 150);
+
+    const onCustomEvent = (e: Event) => {
+      const ce = e as CustomEvent<{ hash?: string }>;
+      if (ce.detail?.hash) {
+        handleHash(ce.detail.hash);
+      } else {
+        handleHash();
+      }
+    };
+
+    window.addEventListener("hashchange", () => handleHash());
+    window.addEventListener("popstate", () => handleHash());
+    window.addEventListener("gallery-tab-select", onCustomEvent);
+    window.addEventListener("route-hash-change", onCustomEvent);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("hashchange", () => handleHash());
+      window.removeEventListener("popstate", () => handleHash());
+      window.removeEventListener("gallery-tab-select", onCustomEvent);
+      window.removeEventListener("route-hash-change", onCustomEvent);
+    };
+  }, []);
+
   const packathonColumn1 = [
     {
       src: "/assets/images/volunteer_with_us__dsc00064__1__1__155_6206.webp",
@@ -64,14 +132,28 @@ export default function GalleryView() {
   ];
 
   const ciscoImages = Array.from({ length: 12 }, (_, i) => ({
-    src: `/assets/images/cisco-event-${i + 1}.jpg`,
+    src: `/assets/images/cisco-event-${i + 1}.webp`,
     alt: `Cisco Event volunteer packing photo ${i + 1}`,
   }));
 
-  const launchEventImages = Array.from({ length: 16 }, (_, i) => ({
-    src: `/assets/images/launch-event-${i + 1}.webp`,
-    alt: `Care Packs Launch Event photo ${i + 1}`,
-  }));
+  const launchEventImages = [
+    { src: "/assets/images/launch-event-1.webp", alt: "Care Packs Launch Event atrium team gathering" },
+    { src: "/assets/images/launch-event-2.webp", alt: "Volunteers holding care packs" },
+    { src: "/assets/images/launch-event-3.webp", alt: "Executive panel discussion on stage" },
+    { src: "/assets/images/launch-event-4.webp", alt: "Volunteers assembling boxes in packing hall" },
+    { src: "/assets/images/launch-event-5.webp", alt: "Close up hands packing essential items" },
+    { src: "/assets/images/launch-event-6.webp", alt: "Essential baby and hygiene products packed in box" },
+    { src: "/assets/images/launch-event-7.webp", alt: "Volunteer stocking shelves with essentials" },
+    { src: "/assets/images/launch-event-8.webp", alt: "Audience listening to presentation on stage" },
+    { src: "/assets/images/launch-event-9.webp", alt: "Volunteers proudly presenting finished care packs" },
+    { src: "/assets/images/launch-event-10.webp", alt: "Team members displaying numbered care packs" },
+    { src: "/assets/images/launch-event-11.webp", alt: "Volunteer smiling with assembled care pack" },
+    { src: "/assets/images/launch-event-12.webp", alt: "Care Packs event sign and packing stations" },
+    { src: "/assets/images/launch-event-13.webp", alt: "Team celebration with trophy in front of banner" },
+    { src: "/assets/images/launch-event-14.webp", alt: "Volunteers cheering behind care pack boxes" },
+    { src: "/assets/images/launch-event-15.webp", alt: "Volunteers collaborating at assembly station" },
+    { src: "/assets/images/launch-event-16.webp", alt: "High-angle view of packing tables in action" },
+  ];
 
   return (
     <div className="w-full">
@@ -82,6 +164,7 @@ export default function GalleryView() {
             src="/assets/images/gallery-hero-clean-hd.webp"
             alt="Care packs built"
             fill
+            sizes="100vw"
             className="object-cover object-right sm:object-[85%_center]"
             priority
           />
@@ -104,75 +187,94 @@ export default function GalleryView() {
           <div className="w-full max-w-[640px] bg-[#ec008c] rounded-[14px] p-5 sm:p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-white text-center shadow-[0_8px_30px_rgba(236,0,140,0.18)]">
             <div>
               <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
-                548
+                300
               </div>
-              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Volunteers in 2025</div>
+              <div className="text-[11px] sm:text-[12px] text-white/85 font-medium leading-tight">
+                First pack build (London)
+              </div>
             </div>
             <div>
               <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
-                2,163
+                1,000
               </div>
-              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Volunteer hours</div>
+              <div className="text-[11px] sm:text-[12px] text-white/85 font-medium leading-tight">
+                Packs in 6 weeks
+              </div>
             </div>
             <div>
               <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
-                144
+                4,500+
               </div>
-              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Companies involved</div>
+              <div className="text-[11px] sm:text-[12px] text-white/85 font-medium leading-tight">
+                Target packs (Oct 2026)
+              </div>
             </div>
             <div>
               <div className="text-[26px] sm:text-[30px] font-bold leading-tight mb-0.5 font-[family-name:var(--font-inter)]">
-                ~400
+                15+
               </div>
-              <div className="text-[12px] sm:text-[12.5px] text-white/90 font-medium">Packs from a team of 20</div>
+              <div className="text-[11px] sm:text-[12px] text-white/85 font-medium leading-tight">
+                Corporate partners
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Tabs Bar */}
-      <div className="w-full bg-white border-b border-[#fce7f3] py-3.5 sticky top-[72px] z-30 shadow-xs">
-        <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-start gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
-          <button
-            type="button"
-            onClick={() => setActiveTab("packathon-2025")}
-            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeTab === "packathon-2025"
-                ? "bg-[#ec008c] text-white shadow-sm"
-                : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
-            }`}
-          >
-            Packathon 2025
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("cisco-event")}
-            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeTab === "cisco-event"
-                ? "bg-[#ec008c] text-white shadow-sm"
-                : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
-            }`}
-          >
-            Cisco Event
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("care-packs-launch")}
-            className={`px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeTab === "care-packs-launch"
-                ? "bg-[#ec008c] text-white shadow-sm"
-                : "bg-transparent hover:bg-gray-100 text-[#4a4a53]"
-            }`}
-          >
-            Care Packs Launch Event
-          </button>
-        </div>
-      </div>
+      {/* Main Content & Gallery Tabs */}
+      <section id="gallery-section" className="w-full py-12 md:py-16 bg-[#fafafa] scroll-mt-24">
+        {/* Hidden alias targets for route hashes */}
+        <span id="care-packs-launch-event" className="sr-only pointer-events-none" />
+        <span id="packathon" className="sr-only pointer-events-none" />
 
-      {/* Main Gallery Grids */}
-      <section className="w-full bg-white py-12 md:py-16">
-        <div className="max-w-[1220px] mx-auto px-4 md:px-6">
-          {/* 1. Packathon 2025 Grid - Proportional Masonry Columns matching Figma exactly */}
+        <div className="max-w-[1247px] mx-auto px-4 md:px-6">
+          {/* Tab Filter Navigation */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 md:mb-12">
+            <button
+              id="packathon-2025"
+              onClick={() => {
+                setActiveTab("packathon-2025");
+                window.history.pushState(null, "", "#packathon-2025");
+              }}
+              className={`px-5 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer scroll-mt-32 ${
+                activeTab === "packathon-2025"
+                  ? "bg-[#ec008c] text-white shadow-sm"
+                  : "bg-white text-[#4a4a53] hover:bg-gray-100 hover:text-black border border-gray-200"
+              }`}
+            >
+              Packathon 2025
+            </button>
+            <button
+              id="cisco-event"
+              onClick={() => {
+                setActiveTab("cisco-event");
+                window.history.pushState(null, "", "#cisco-event");
+              }}
+              className={`px-5 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer scroll-mt-32 ${
+                activeTab === "cisco-event"
+                  ? "bg-[#ec008c] text-white shadow-sm"
+                  : "bg-white text-[#4a4a53] hover:bg-gray-100 hover:text-black border border-gray-200"
+              }`}
+            >
+              Cisco Event
+            </button>
+            <button
+              id="care-packs-launch"
+              onClick={() => {
+                setActiveTab("care-packs-launch");
+                window.history.pushState(null, "", "#care-packs-launch");
+              }}
+              className={`px-5 py-2.5 rounded-full text-[14px] font-semibold transition-all cursor-pointer scroll-mt-32 ${
+                activeTab === "care-packs-launch"
+                  ? "bg-[#ec008c] text-white shadow-sm"
+                  : "bg-white text-[#4a4a53] hover:bg-gray-100 hover:text-black border border-gray-200"
+              }`}
+            >
+              Care Packs Launch Event
+            </button>
+          </div>
+
+          {/* 1. Packathon 2025 3-Column Masonry Grid */}
           {activeTab === "packathon-2025" && (
             <div className="grid grid-cols-1 md:grid-cols-[397fr_246fr_512fr] gap-4 sm:gap-5 items-start">
               {/* Column 1 (397fr) */}
@@ -187,6 +289,7 @@ export default function GalleryView() {
                       src={img.src}
                       alt={img.alt}
                       fill
+                      sizes="(max-width: 768px) 100vw, 397px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -206,6 +309,7 @@ export default function GalleryView() {
                       src={img.src}
                       alt={img.alt}
                       fill
+                      sizes="(max-width: 768px) 100vw, 246px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -225,6 +329,7 @@ export default function GalleryView() {
                       src={img.src}
                       alt={img.alt}
                       fill
+                      sizes="(max-width: 768px) 100vw, 512px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -247,6 +352,8 @@ export default function GalleryView() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    unoptimized
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -268,6 +375,8 @@ export default function GalleryView() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    unoptimized
+                    sizes="(max-width: 640px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -289,6 +398,8 @@ export default function GalleryView() {
               src={lightboxImage}
               alt="Enlarged gallery view"
               fill
+              unoptimized
+              sizes="90vw"
               className="object-contain"
             />
           </div>

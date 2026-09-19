@@ -404,13 +404,12 @@ export function NewAuthoritiesCTABanner() {
           Whether you donate, volunteer, fundraise or partner with us, your support can become something tangible for someone experiencing hardship.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3.5">
-          <button
-            type="button"
-            onClick={handleDonateClick}
+          <Link
+            href="/contact"
             className="px-7 h-[46px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[15px] font-semibold rounded-[6px] inline-flex items-center justify-center transition-colors shadow-sm cursor-pointer"
           >
-            Donate Now
-          </button>
+            Refer a family
+          </Link>
           <Link
             href="/get-involved"
             className="px-7 h-[46px] bg-white hover:bg-gray-50 text-[#1b1b1b] border border-gray-300 text-[15px] font-semibold rounded-[6px] inline-flex items-center justify-center transition-colors shadow-sm cursor-pointer"

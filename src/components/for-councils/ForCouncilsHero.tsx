@@ -49,8 +49,8 @@ const HERO_CONFIG: Record<ForCouncilsVariant, HeroConfigItem> = {
     title: "Everything you need before you refer a family",
     description:
       "Who qualifies, what happens after you submit a referral, and how long it takes to reach the family you're supporting.",
-    ctaText: "Donate a Pack",
-    ctaHref: "#donate",
+    ctaText: "Refer a family",
+    ctaHref: "/contact",
     tabs: [
       { label: "Refer a family", id: "refer-a-family" },
       { label: "Referral criteria", id: "eligibility-criteria" },
@@ -65,8 +65,8 @@ const HERO_CONFIG: Record<ForCouncilsVariant, HeroConfigItem> = {
     title: "Bringing Care Packs to your authority",
     description:
       "What it takes to get set up as a partner authority, from first conversation to your first referral.",
-    ctaText: "Donate a Pack",
-    ctaHref: "#donate",
+    ctaText: "Partner With Us",
+    ctaHref: "#speak-to-the-team",
     tabs: [
       { label: "Become a partner authority", id: "why-partner" },
       { label: "Onboarding steps", id: "onboarding-steps" },
@@ -250,12 +250,18 @@ function CouncilOfficersPetals() {
             priority
             className={`${config.bgPosition || "object-cover object-center"} ${
               variant === "working-with-us"
-                ? "opacity-75 sm:opacity-85"
+                ? "opacity-25 sm:opacity-30"
                 : "opacity-90 sm:opacity-100"
             } select-none`}
           />
-          {/* Subtle mobile fade only to ensure mobile text readability without washing out desktop shapes */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/30 to-transparent sm:hidden" />
+          {/* Gentle left-to-right fade so text on the left is crisp and clear while subtle pattern shines through on the right */}
+          <div
+            className={`absolute inset-0 pointer-events-none ${
+              variant === "working-with-us"
+                ? "bg-gradient-to-r from-white/80 via-white/40 to-transparent"
+                : "bg-gradient-to-r from-white/60 via-white/30 to-transparent sm:hidden"
+            }`}
+          />
         </div>
       )}
 
@@ -282,18 +288,27 @@ function CouncilOfficersPetals() {
 
         {/* Action Button */}
         <div>
-          <button
-            type="button"
-            onClick={handleCtaClick}
-            className="px-6 sm:px-7 h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[14px] font-medium rounded-[6px] inline-flex items-center justify-center transition-colors shadow-sm cursor-pointer"
-          >
-            {config.ctaText}
-          </button>
+          {config.ctaHref.startsWith("#") ? (
+            <button
+              type="button"
+              onClick={handleCtaClick}
+              className="px-6 sm:px-7 h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[14px] font-medium rounded-[6px] inline-flex items-center justify-center transition-colors shadow-sm cursor-pointer"
+            >
+              {config.ctaText}
+            </button>
+          ) : (
+            <Link
+              href={config.ctaHref}
+              className="px-6 sm:px-7 h-[42px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[14px] font-medium rounded-[6px] inline-flex items-center justify-center transition-colors shadow-sm cursor-pointer"
+            >
+              {config.ctaText}
+            </Link>
+          )}
         </div>
       </div>
 
       {/* Full-width Magenta Sub-navigation Tab Bar */}
-      <div className="w-full bg-[#ec008c] py-2.5 sm:py-3 shadow-sm">
+      <div className="w-full bg-[#ec008c] py-2.5 sm:py-3 shadow-sm relative z-10">
         <div className="max-w-[1247px] mx-auto px-4 md:px-6 flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
           {config.tabs.map((tab) => {
             const isActive = selectedTab.toLowerCase() === tab.label.toLowerCase();

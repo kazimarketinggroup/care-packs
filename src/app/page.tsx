@@ -1,6 +1,7 @@
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import LandingVideoSection from "@/components/LandingVideoSection";
 import CorporateDonors from "@/components/CorporateDonors";
 import AboutUs from "@/components/AboutUs";
 import OurImpact from "@/components/OurImpact";
@@ -21,6 +22,11 @@ export default function Home() {
       <AnnouncementBar />
       <Navbar />
       <Hero />
+
+      <ScrollReveal>
+        <LandingVideoSection />
+      </ScrollReveal>
+
       <CorporateDonors />
 
       <ScrollReveal>

@@ -34,6 +34,36 @@ export default function Navbar() {
     setActiveDropdown(null);
   };
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    closeDropdown();
+    setMobileMenuOpen(false);
+    setExpandedMobileMenu(null);
+
+    if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+      if (typeof window !== "undefined") {
+        const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+        const targetPath = (path || currentPath).replace(/\/+$/, "") || "/";
+
+        if (currentPath === targetPath) {
+          e.preventDefault();
+          window.history.pushState(null, "", `${targetPath}#${hash}`);
+          window.dispatchEvent(new CustomEvent("gallery-tab-select", { detail: { hash } }));
+          window.dispatchEvent(new CustomEvent("route-hash-change", { detail: { hash } }));
+          window.dispatchEvent(new HashChangeEvent("hashchange"));
+
+          const el = document.getElementById(hash) || document.getElementById("gallery-section");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      }
+    }
+  };
+
   // Close dropdown on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -80,25 +110,43 @@ export default function Navbar() {
                 onMouseEnter={() => handleMouseEnter(link.label)}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link
-                  href={link.href}
-                  onClick={closeDropdown}
-                  className={`px-3 py-2 text-[15px] transition-colors rounded-md flex items-center gap-1.5 cursor-pointer ${
-                    isOpen
-                      ? "text-[#ec008c] font-medium"
-                      : "font-normal text-[#1b1b1b] hover:text-[#ec008c]"
-                  }`}
-                >
-                  <span>{link.label}</span>
-                  {hasMenu && (
+                {hasMenu ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (isOpen) {
+                        closeDropdown();
+                      } else {
+                        handleMouseEnter(link.label);
+                      }
+                    }}
+                    className={`px-3 py-2 text-[15px] transition-colors rounded-md flex items-center gap-1.5 cursor-pointer outline-none ${
+                      isOpen
+                        ? "text-[#ec008c] font-medium"
+                        : "font-normal text-[#1b1b1b] hover:text-[#ec008c]"
+                    }`}
+                  >
+                    <span>{link.label}</span>
                     <ChevronDown
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-[#ec008c]" : "text-[#71717a]"
                       }`}
                       strokeWidth={1.8}
                     />
-                  )}
-                </Link>
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href || "#"}
+                    onClick={closeDropdown}
+                    className={`px-3 py-2 text-[15px] transition-colors rounded-md flex items-center gap-1.5 cursor-pointer ${
+                      isOpen
+                        ? "text-[#ec008c] font-medium"
+                        : "font-normal text-[#1b1b1b] hover:text-[#ec008c]"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                )}
               </div>
             );
           })}
@@ -152,7 +200,7 @@ export default function Navbar() {
                         {/* Column Category Title as Clickable Link */}
                         <Link
                           href={col.href}
-                          onClick={closeDropdown}
+                          onClick={(e) => handleNavClick(e, col.href)}
                           className="inline-block text-[13px] font-bold tracking-[0.06em] text-[#ec008c] uppercase mb-5 hover:underline transition-all"
                         >
                           {col.title}
@@ -162,7 +210,7 @@ export default function Navbar() {
                             <li key={item.label}>
                               <Link
                                 href={item.href}
-                                onClick={closeDropdown}
+                                onClick={(e) => handleNavClick(e, item.href)}
                                 className={`group flex items-center justify-between py-3 border-b border-[#f2edf2] text-[15px] font-normal transition-colors ${
                                   item.isHighlight
                                     ? "text-[#1a5b58] hover:text-[#ec008c]"
@@ -350,10 +398,7 @@ export default function Navbar() {
                           <div key={col.title}>
                             <Link
                               href={col.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setExpandedMobileMenu(null);
-                              }}
+                              onClick={(e) => handleNavClick(e, col.href)}
                               className="block text-[11.5px] font-bold text-[#ec008c] uppercase tracking-wider mb-1.5 hover:underline"
                             >
                               {col.title}
@@ -363,10 +408,7 @@ export default function Navbar() {
                                 <Link
                                   key={item.label}
                                   href={item.href}
-                                  onClick={() => {
-                                    setMobileMenuOpen(false);
-                                    setExpandedMobileMenu(null);
-                                  }}
+                                  onClick={(e) => handleNavClick(e, item.href)}
                                   className="text-[14px] text-[#2d2d2d] hover:text-[#ec008c] py-1 flex items-center justify-between transition-colors"
                                 >
                                   <span>{item.label}</span>
@@ -442,7 +484,7 @@ export default function Navbar() {
               return (
                 <Link
                   key={link.label}
-                  href={link.href}
+                  href={link.href || "#"}
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-[16px] font-medium text-[#1b1b1b] hover:text-[#ec008c] py-2 transition-colors border-b border-black/[0.04]"
                 >

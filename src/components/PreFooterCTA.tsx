@@ -24,18 +24,20 @@ export default function PreFooterCTA({
     <section className="w-full bg-[#fff6fc]">
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-[50px] flex flex-col items-center">
         <div className="w-full max-w-[602px] flex flex-col items-center text-center">
-          {/* Headline - exact 2-line wrap with max-w-[467px] */}
-          <h2 className="text-[30px] leading-[40px] font-semibold text-[#1b1b1b] max-w-[467px]">
+          {/* Headline */}
+          <h2 className="text-[26px] sm:text-[30px] leading-[36px] sm:leading-[40px] font-semibold text-[#1b1b1b] max-w-[620px]">
             {title}
           </h2>
 
-          {/* Subtitle - exact 2-line wrap with max-w-[602px] */}
-          <p className="mt-[50px] text-[16px] leading-[26.4px] font-normal text-[#3a3a3f]">
-            {subtitle}
-          </p>
+          {/* Subtitle */}
+          {subtitle ? (
+            <p className="mt-[24px] sm:mt-[40px] text-[16px] leading-[26.4px] font-normal text-[#3a3a3f]">
+              {subtitle}
+            </p>
+          ) : null}
 
           {/* Action Buttons */}
-          <div className="mt-[50px] flex flex-wrap items-center justify-center gap-3">
+          <div className={`${subtitle ? "mt-[32px] sm:mt-[46px]" : "mt-[32px]"} flex flex-wrap items-center justify-center gap-3`}>
             <button
               type="button"
               onClick={() => {

@@ -5,37 +5,37 @@ import Link from "next/link";
 
 export default function NewsEventsUpcoming() {
   return (
-    <section id="upcoming-event" className="w-full bg-[#fbf9fa] py-14 md:py-20 border-b border-gray-100 scroll-mt-20">
+    <section id="upcoming-event" className="w-full bg-[#fff6fb] py-14 md:py-20 border-b border-[#f3e4ee] scroll-mt-20">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Eyebrow & Title */}
         <span className="text-[12px] md:text-[13px] font-bold tracking-[0.15em] text-[#ec008c] uppercase mb-2 block">
           UPCOMING EVENT
         </span>
-        <h2 className="text-[28px] sm:text-[36px] md:text-[40px] font-bold text-[#1b1b1b] tracking-tight mb-8">
+        <h2 className="text-[32px] sm:text-[38px] md:text-[42px] font-bold text-[#1b1b1b] tracking-tight mb-6">
           Packathon 2026
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Event details & CTA buttons */}
+          {/* Left Column: Event details & Contact Us button */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             {/* Event bullets */}
-            <ul className="space-y-2.5 text-[15px] sm:text-[16px] text-[#3a3a3f]">
+            <ul className="space-y-2 text-[15px] sm:text-[16px] text-[#2c2c31]">
               <li className="flex items-start gap-2.5">
-                <span className="text-[#ec008c] font-bold mt-1">•</span>
-                <span className="font-semibold text-[#1b1b1b]">13 October 2026</span>
+                <span className="text-[#1b1b1b] font-bold mt-0.5">•</span>
+                <span className="font-bold text-[#1b1b1b]">13 October 2026</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#ec008c] font-bold mt-1">•</span>
+                <span className="text-[#1b1b1b] font-bold mt-0.5">•</span>
                 <span>Porchester Hall, Porchester Road, Paddington, London, W2 5HS</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#ec008c] font-bold mt-1">•</span>
+                <span className="text-[#1b1b1b] font-bold mt-0.5">•</span>
                 <span>Target: 4,500+ packs in one afternoon</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#ec008c] font-bold mt-1">•</span>
+                <span className="text-[#1b1b1b] font-bold mt-0.5">•</span>
                 <span>Capacity for approximately 15 corporate organisations</span>
               </li>
             </ul>
@@ -47,19 +47,13 @@ export default function NewsEventsUpcoming() {
               goes directly to a family experiencing poverty.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* CTA Button */}
+            <div className="mt-7 flex items-center">
               <Link
-                href="/get-involved/partner-with-us"
-                className="h-[44px] px-6 rounded-[6px] bg-[#ec008c] hover:bg-[#d6007e] text-white font-bold text-[14.5px] inline-flex items-center justify-center transition-all shadow-sm active:scale-[0.98]"
+                href="/contact"
+                className="h-[44px] px-7 rounded-[6px] bg-[#ec008c] hover:bg-[#d6007e] text-white font-bold text-[14.5px] inline-flex items-center justify-center transition-all shadow-sm active:scale-[0.98]"
               >
-                Register your company
-              </Link>
-              <Link
-                href="/get-involved/partner-with-us"
-                className="h-[44px] px-6 rounded-[6px] bg-white hover:bg-gray-50 text-[#1b1b1b] border border-[#1b1b1b] font-bold text-[14.5px] inline-flex items-center justify-center transition-all shadow-sm active:scale-[0.98]"
-              >
-                Sponsor the event
+                Contact Us
               </Link>
             </div>
           </div>
@@ -67,8 +61,8 @@ export default function NewsEventsUpcoming() {
           {/* Right Column: 2x2 Stat Cards */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-5">
             {/* Stat 1 */}
-            <div className="bg-white rounded-[16px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
-              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight">
+            <div className="bg-white rounded-[14px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
+              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight font-[family-name:var(--font-inter)]">
                 4,500+
               </div>
               <div className="text-[12.5px] sm:text-[13px] text-[#6f6f77] mt-1.5 font-medium">
@@ -77,8 +71,8 @@ export default function NewsEventsUpcoming() {
             </div>
 
             {/* Stat 2 */}
-            <div className="bg-white rounded-[16px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
-              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight">
+            <div className="bg-white rounded-[14px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
+              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight font-[family-name:var(--font-inter)]">
                 ~15
               </div>
               <div className="text-[12.5px] sm:text-[13px] text-[#6f6f77] mt-1.5 font-medium">
@@ -87,8 +81,8 @@ export default function NewsEventsUpcoming() {
             </div>
 
             {/* Stat 3 */}
-            <div className="bg-white rounded-[16px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
-              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight">
+            <div className="bg-white rounded-[14px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
+              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight font-[family-name:var(--font-inter)]">
                 £10
               </div>
               <div className="text-[12.5px] sm:text-[13px] text-[#6f6f77] mt-1.5 font-medium">
@@ -97,8 +91,8 @@ export default function NewsEventsUpcoming() {
             </div>
 
             {/* Stat 4 */}
-            <div className="bg-white rounded-[16px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
-              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight">
+            <div className="bg-white rounded-[14px] p-6 sm:p-7 text-center shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#ece8eb]">
+              <div className="text-[30px] sm:text-[36px] font-bold text-[#ec008c] leading-tight font-[family-name:var(--font-inter)]">
                 Oct 13
               </div>
               <div className="text-[12.5px] sm:text-[13px] text-[#6f6f77] mt-1.5 font-medium">

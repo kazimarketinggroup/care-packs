@@ -76,15 +76,14 @@ export default function WhoWeHelpHero({
           Behind every Care Pack is a family facing a moment of real hardship. These are some of the stories with names changed or anonymised that explain why Care Packs exists.
         </p>
 
-        {/* Action Button: Donate a Pack */}
+        {/* Action Button: Refer a family */}
         <div className="flex items-center justify-center">
-          <button
-            type="button"
-            onClick={handleDonateClick}
+          <Link
+            href="/contact"
             className="px-8 h-[44px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[14px] sm:text-[14.5px] font-semibold rounded-[6px] flex items-center justify-center transition-colors shadow-sm cursor-pointer"
           >
-            Donate a Pack
-          </button>
+            Refer a family
+          </Link>
         </div>
       </div>
 

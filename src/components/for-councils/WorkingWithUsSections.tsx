@@ -167,22 +167,22 @@ export function DataAndSafeguardingSection() {
 export function ServiceSpecificationSection() {
   const carePacksProvides = [
     "Complete baby care packs, free of charge",
-    "Delivery to an agreed hub or civic location or partner premises",
-    "Pack specifications sheet for partner reference",
+    "Delivery to an agreed collection point or direct to the partner",
+    "Pack specification sheet for partner reference",
     "GDPR-compliant data-sharing agreement",
-    "Dedicated onboarding support",
-    "Co-branded joint PR opportunities and CSR pack",
-    "Named Care Packs contact lead for partner communications",
+    "Basic impact reporting template",
+    "Contact support through Director of Distribution",
+    "Named Care Packs media contact for partner communications",
   ];
 
   const requireFromPartners = [
     "Signed data-sharing agreement before first delivery",
     "Confirmation of receipt for each pack allocation",
-    "Basic distribution data (number delivered, general area of distribution)",
-    "Confirmation that your safeguarding policy is in place",
-    "Agreement not to sell or charge for packs provided",
-    "Nominated contact for day-to-day coordination",
-    "Immediate notice of any damaged packs or shortages",
+    "Basic distribution data (packs distributed, general beneficiary profile)",
+    "Confirmation that own safeguarding policy is in place",
+    "Agreed referral criteria for determining eligible families",
+    "Named contact within the partner organisation",
+    "Reasonable notice of demand increases or changes",
   ];
 
   return (
@@ -200,7 +200,7 @@ export function ServiceSpecificationSection() {
                   key={idx}
                   className="bg-[#fff2f9] border border-[#fbdbe9] rounded-[10px] px-4 py-3 sm:py-3.5 flex items-center gap-3"
                 >
-                  <span className="w-2.5 h-2.5 rounded-sm bg-[#ec008c] shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-[#ec008c] shrink-0" />
                   <span className="text-[14px] sm:text-[14.5px] font-medium text-[#1b1b1b]">
                     {item}
                   </span>
@@ -220,7 +220,7 @@ export function ServiceSpecificationSection() {
                   key={idx}
                   className="bg-[#f9f9fb] border border-gray-200/80 rounded-[10px] px-4 py-3 sm:py-3.5 flex items-center gap-3"
                 >
-                  <span className="w-2.5 h-2.5 rounded-sm bg-gray-400 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-[#71717a] shrink-0" />
                   <span className="text-[14px] sm:text-[14.5px] font-medium text-[#2c2c30]">
                     {item}
                   </span>
@@ -239,17 +239,17 @@ export function ReadyToPartnerCTA() {
   return (
     <section className="w-full bg-[#fff6fc] py-14 sm:py-16 md:py-20 border-t border-[#fce4f3]">
       <div className="max-w-[700px] mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-[26px] sm:text-[32px] font-bold text-[#1b1b1b] tracking-tight mb-4">
-          Ready to partner with Care Packs?
+        <h2 className="text-[26px] sm:text-[32px] md:text-[34px] font-bold text-[#1b1b1b] tracking-tight mb-4">
+          Ready to put referral into your casework?
         </h2>
         <p className="text-[15px] sm:text-[16px] leading-[26px] text-[#4a4a53] mb-8 max-w-[580px] mx-auto">
-          We are looking to expand across England and beyond. Talk to our distribution team to explore what a partnership could look like for your area.
+          Talk to the team about a referral partnership, or send your first referral today.
         </p>
         <Link
           href="/for-councils/new-authorities#speak-to-the-team"
           className="inline-flex items-center justify-center px-8 h-[46px] bg-[#ec008c] hover:bg-[#d6007e] text-white text-[15px] font-semibold rounded-[6px] transition-colors shadow-sm cursor-pointer"
         >
-          Speak to the team
+          Become a partner authority
         </Link>
       </div>
     </section>

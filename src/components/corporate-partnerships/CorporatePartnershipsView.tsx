@@ -139,6 +139,7 @@ export default function CorporatePartnershipsView() {
             alt="Care Packs volunteers packing gift boxes with teddy bears"
             fill
             priority
+            sizes="(max-width: 640px) 100vw, 60vw"
             className="object-cover object-right-top"
           />
           {/* Subtle soft feathering on the left and bottom */}
@@ -153,6 +154,7 @@ export default function CorporatePartnershipsView() {
             alt=""
             fill
             priority
+            sizes="100vw"
             className="object-cover object-right"
           />
           <div className="absolute inset-0 bg-white/85" />
@@ -224,6 +226,7 @@ export default function CorporatePartnershipsView() {
                       src={item.image}
                       alt={item.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, 600px"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
                   )}
@@ -274,6 +277,7 @@ export default function CorporatePartnershipsView() {
                       src={item.image}
                       alt={item.name}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="object-cover object-center"
                     />
                   ) : (

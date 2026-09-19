@@ -9,31 +9,69 @@ interface WhoWeAreHeroProps {
 }
 
 export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHeroProps) {
+  const [selectedTab, setSelectedTab] = React.useState<string>(activeTab);
+
   const tabs = [
-    { label: "Our Purpose", href: "/about/our-purpose" },
-    { label: "Board of Trustees", href: "/about/board-of-trustees" },
-    { label: "Founding Story", href: "/about/founding-story" },
+    { label: "Our Purpose", href: "/about/who-we-are#our-purpose", id: "our-purpose" },
+    { label: "Board of Trustees", href: "/about/who-we-are#board-of-trustees", id: "board-of-trustees" },
+    { label: "Founding Story", href: "/about/who-we-are#founding-story", id: "founding-story" },
   ];
 
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
+    setSelectedTab(activeTab);
+  }, [activeTab]);
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleHash = () => {
       const hash = window.location.hash;
-      if (hash) {
-        const el = document.querySelector(hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-          return;
-        }
-      }
-      if (activeTab === "Board of Trustees") {
+      if (hash === "#board-of-trustees") {
+        setSelectedTab("Board of Trustees");
         const el = document.getElementById("board-of-trustees");
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else if (activeTab === "Founding Story") {
+      } else if (hash === "#founding-story") {
+        setSelectedTab("Founding Story");
         const el = document.getElementById("founding-story");
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (hash === "#our-purpose") {
+        setSelectedTab("Our Purpose");
+        const el = document.getElementById("our-purpose");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    }
-  }, [activeTab]);
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+
+    // Observe sections to update active tab when scrolling
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target.id === "our-purpose") {
+              setSelectedTab("Our Purpose");
+            } else if (entry.target.id === "board-of-trustees") {
+              setSelectedTab("Board of Trustees");
+            } else if (entry.target.id === "founding-story") {
+              setSelectedTab("Founding Story");
+            }
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+
+    ["our-purpose", "board-of-trustees", "founding-story"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("hashchange", handleHash);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section className="relative w-full overflow-hidden bg-[#fdfafc] min-h-[480px] sm:min-h-[510px] md:min-h-[530px] flex flex-col justify-between">
@@ -74,24 +112,19 @@ export default function WhoWeAreHero({ activeTab = "Our Purpose" }: WhoWeAreHero
         {/* Sticky Sub-navigation Tabs */}
         <div className="w-full border-b border-[#ec008c] pb-3 flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar mt-auto">
           {tabs.map((tab) => {
-            const isActive = activeTab === tab.label;
-            const targetId =
-              tab.label === "Our Purpose"
-                ? "our-purpose"
-                : tab.label === "Board of Trustees"
-                ? "board-of-trustees"
-                : "founding-story";
+            const isActive = selectedTab === tab.label;
 
             return (
               <Link
                 key={tab.label}
                 href={tab.href}
                 onClick={(e) => {
-                  const el = document.getElementById(targetId);
+                  e.preventDefault();
+                  setSelectedTab(tab.label);
+                  const el = document.getElementById(tab.id);
                   if (el) {
-                    e.preventDefault();
                     el.scrollIntoView({ behavior: "smooth", block: "start" });
-                    window.history.pushState(null, "", `#${targetId}`);
+                    window.history.pushState(null, "", `#${tab.id}`);
                   }
                 }}
                 className={`text-[14px] font-medium px-4 py-1.5 rounded-full transition-all whitespace-nowrap cursor-pointer ${

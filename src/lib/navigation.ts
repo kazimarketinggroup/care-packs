@@ -24,50 +24,54 @@ export interface MegaMenuPromo {
   dateLocation?: string;
 }
 
+export interface NavLink {
+  label: string;
+  href?: string;
+}
+
 export interface MegaMenuItem {
-  href: string;
+  href?: string;
   columns: MegaMenuColumn[];
   promo: MegaMenuPromo;
 }
 
-export const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Our work", href: "/our-work" },
-  { label: "For councils", href: "/for-councils" },
-  { label: "Get involved", href: "/get-involved" },
-  { label: "Impact", href: "/impact" },
-  { label: "News & events", href: "/news-events" },
+export const navLinks: NavLink[] = [
+  { label: "About" },
+  { label: "Our work" },
+  { label: "For councils" },
+  { label: "Get involved" },
+  { label: "Impact" },
+  { label: "News & events" },
 ];
 
 export const megaMenus: Record<string, MegaMenuItem> = {
   About: {
-    href: "/about",
     columns: [
       {
         title: "WHO WE ARE",
         href: "/about/who-we-are",
         links: [
-          { label: "Our Purpose", href: "/about/our-purpose" },
-          { label: "Board of Trustees", href: "/about/board-of-trustees" },
-          { label: "Founding Story", href: "/about/founding-story" },
+          { label: "Our Purpose", href: "/about/who-we-are#our-purpose" },
+          { label: "Board of Trustees", href: "/about/who-we-are#board-of-trustees" },
+          { label: "Founding Story", href: "/about/who-we-are#founding-story" },
         ],
       },
       {
         title: "HOW WE WORK",
         href: "/about/how-we-work",
         links: [
-          { label: "Referral Model", href: "/about/referral-model" },
-          { label: "Packing Days", href: "/about/packing-days" },
-          { label: "Baby Pack Specification", href: "/about/baby-pack-specification" },
+          { label: "Referral Model", href: "/about/how-we-work#referral-model" },
+          { label: "Packing Days", href: "/about/how-we-work#packing-days" },
+          { label: "Baby Pack Specification", href: "/about/how-we-work#baby-pack-spec" },
         ],
       },
       {
         title: "ACCOUNTABILITY",
         href: "/about/accountability",
         links: [
-          { label: "Governance and Policies", href: "/about/governance-and-policies" },
-          { label: "Annual Report", href: "/about/annual-report" },
-          { label: "Fundraising Standard", href: "/about/fundraising-standard" },
+          { label: "Governance and Policies", href: "/about/accountability#governance" },
+          { label: "Annual Report", href: "/about/accountability#annual-report" },
+          { label: "Fundraising Standard", href: "/about/accountability#fundraising-standards" },
         ],
       },
     ],
@@ -77,38 +81,37 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       title: "Early years poverty: families with children under five",
       description:
         "One fully costed pack for children under five. Distribution runs entirely through local authority referral.",
-      cta: "Donate Now",
-      href: "/about/baby-pack-specification",
+      cta: "Refer a family",
+      href: "/contact",
     },
   },
   "Our work": {
-    href: "/our-work",
     columns: [
       {
         title: "PROGRAMMES",
         href: "/our-work/programmes",
         links: [
-          { label: "Phase 1a: early years", href: "/our-work/phase-1a-early-years" },
-          { label: "Programme roadmap", href: "/our-work/programme-roadmap" },
-          { label: "Distribution", href: "/our-work/distribution" },
+          { label: "Phase 1a: early years", href: "/our-work/programmes#phase-1a" },
+          { label: "Programme roadmap", href: "/our-work/programmes#programme-roadmap" },
+          { label: "Distribution", href: "/our-work/programmes#distribution" },
         ],
       },
       {
         title: "THE BABY PACK",
         href: "/our-work/the-baby-pack",
         links: [
-          { label: "What is in the pack", href: "/our-work/what-is-in-the-pack" },
-          { label: "How it is costed", href: "/our-work/how-it-is-costed" },
-          { label: "Who receives it", href: "/our-work/who-receives-it" },
+          { label: "What is in the pack", href: "/our-work/the-baby-pack#what-is-in-the-pack" },
+          { label: "How it is costed", href: "/our-work/the-baby-pack#how-it-is-costed" },
+          { label: "Who receives it", href: "/our-work/the-baby-pack#who-receives-it" },
         ],
       },
       {
         title: "WHO WE HELP",
         href: "/our-work/who-we-help",
         links: [
-          { label: "Families in the referral route", href: "/our-work/families-in-the-referral-route" },
-          { label: "Referring authorities", href: "/our-work/referring-authorities" },
-          { label: "Where we operate", href: "/our-work/where-we-operate" },
+          { label: "Families in the referral route", href: "/our-work/who-we-help#families-in-referral-route" },
+          { label: "Referring authorities", href: "/our-work/who-we-help#referring-authorities" },
+          { label: "Where we operate", href: "/our-work/who-we-help#where-we-operate" },
         ],
       },
     ],
@@ -129,27 +132,27 @@ export const megaMenus: Record<string, MegaMenuItem> = {
         title: "WORKING WITH US",
         href: "/for-councils/working-with-us",
         links: [
-          { label: "The partnership model", href: "/for-councils/the-partnership-model" },
-          { label: "Data and safeguarding", href: "/for-councils/data-and-safeguarding" },
-          { label: "Service specification", href: "/for-councils/service-specification" },
+          { label: "The partnership model", href: "/for-councils/working-with-us#partnership-model" },
+          { label: "Data and safeguarding", href: "/for-councils/working-with-us#data-and-safeguarding" },
+          { label: "Service specification", href: "/for-councils/working-with-us#service-specification" },
         ],
       },
       {
         title: "FOR COUNCIL OFFICERS",
         href: "/for-councils/for-council-officers",
         links: [
-          { label: "Refer a family", href: "/for-councils/refer-a-family" },
-          { label: "Referral criteria", href: "/for-councils/referral-criteria" },
-          { label: "Delivery timescales", href: "/for-councils/delivery-timescales" },
+          { label: "Refer a family", href: "/for-councils/for-council-officers#refer-a-family" },
+          { label: "Referral criteria", href: "/for-councils/for-council-officers#eligibility-criteria" },
+          { label: "Delivery timescales", href: "/for-councils/for-council-officers#timescales-logistics" },
         ],
       },
       {
         title: "NEW AUTHORITIES",
         href: "/for-councils/new-authorities",
         links: [
-          { label: "Become a partner authority", href: "/for-councils/become-a-partner-authority" },
-          { label: "Onboarding steps", href: "/for-councils/onboarding-steps" },
-          { label: "Speak to the team", href: "/for-councils/speak-to-the-team" },
+          { label: "Become a partner authority", href: "/for-councils/new-authorities#why-partner" },
+          { label: "Onboarding steps", href: "/for-councils/new-authorities#onboarding-steps" },
+          { label: "Speak to the team", href: "/for-councils/new-authorities#speak-to-the-team" },
         ],
       },
     ],
@@ -159,8 +162,8 @@ export const megaMenus: Record<string, MegaMenuItem> = {
       title: "No cost to the authority",
       description:
         "Eight items, fully costed, delivered to one family with a child under five.",
-      cta: "Donate Now",
-      href: "/for-councils/authority-information",
+      cta: "Refer a family",
+      href: "/contact",
     },
   },
   "Get involved": {
@@ -170,27 +173,27 @@ export const megaMenus: Record<string, MegaMenuItem> = {
         title: "VOLUNTEER WITH US",
         href: "/get-involved/volunteer-with-us",
         links: [
-          { label: "Public packing days", href: "/get-involved/public-packing-days" },
-          { label: "Collection drives", href: "/get-involved/collection-drives" },
-          { label: "Volunteer enquiries", href: "/get-involved/volunteer-enquiries" },
+          { label: "Public packing days", href: "/get-involved/volunteer-with-us#public-packing-days" },
+          { label: "Collection drives", href: "/get-involved/volunteer-with-us#collection-drives" },
+          { label: "Volunteer enquiries", href: "/get-involved/volunteer-with-us#volunteer-enquiries" },
         ],
       },
       {
         title: "FUNDRAISE",
         href: "/get-involved/fundraise",
         links: [
-          { label: "Fund packs directly", href: "/get-involved/fund-packs-directly" },
-          { label: "Workplace fundraising", href: "/get-involved/workplace-fundraising" },
-          { label: "Community collections", href: "/get-involved/community-collections" },
+          { label: "Fund packs directly", href: "/get-involved/fundraise#fund-packs-directly" },
+          { label: "Workplace fundraising", href: "/get-involved/fundraise#workplace-fundraising" },
+          { label: "Community collections", href: "/get-involved/fundraise#community-collections" },
         ],
       },
       {
         title: "PARTNER WITH US",
         href: "/get-involved/partner-with-us",
         links: [
-          { label: "Corporate partnerships", href: "/get-involved/corporate-partnerships" },
-          { label: "Closed volunteering days", href: "/get-involved/closed-volunteering-days" },
-          { label: "Sponsor a Pack Run", href: "/get-involved/sponsor-a-pack-run", isHighlight: true },
+          { label: "Corporate partnerships", href: "/get-involved/partner-with-us#corporate-partnerships" },
+          { label: "Closed volunteering days", href: "/get-involved/partner-with-us#closed-volunteering-days" },
+          { label: "Sponsor a Pack Run", href: "/get-involved/partner-with-us#sponsor-a-pack-run", isHighlight: true },
         ],
       },
     ],
@@ -212,27 +215,27 @@ export const megaMenus: Record<string, MegaMenuItem> = {
         title: "OUR IMPACT",
         href: "/impact/our-impact",
         links: [
-          { label: "Packs distributed", href: "/impact/packs-distributed" },
-          { label: "Cost per pack", href: "/impact/cost-per-pack" },
-          { label: "Reporting cycle", href: "/impact/reporting-cycle" },
+          { label: "Packs distributed", href: "/impact/our-impact#packs-distributed" },
+          { label: "Cost per pack", href: "/impact/our-impact#cost-per-pack" },
+          { label: "Reporting cycle", href: "/impact/our-impact#reporting-cycle" },
         ],
       },
       {
         title: "EVIDENCE",
         href: "/impact/evidence",
         links: [
-          { label: "Early years poverty data", href: "/impact/early-years-poverty-data" },
-          { label: "Referral outcomes", href: "/impact/referral-outcomes" },
-          { label: "Method and limitations", href: "/impact/method-and-limitations" },
+          { label: "Early years poverty data", href: "/impact/evidence#early-years-poverty-data" },
+          { label: "Referral outcomes", href: "/impact/evidence#referral-outcomes" },
+          { label: "Method and limitations", href: "/impact/evidence#method-and-limitations" },
         ],
       },
       {
         title: "STORIES",
         href: "/impact/stories",
         links: [
-          { label: "From council officers", href: "/impact/from-council-officers" },
-          { label: "From volunteers", href: "/impact/from-volunteers" },
-          { label: "From partners", href: "/impact/from-partners" },
+          { label: "From council officers", href: "/impact/stories#council-stories" },
+          { label: "From volunteers", href: "/impact/stories#volunteer-stories" },
+          { label: "From partners", href: "/impact/stories#partner-stories" },
         ],
       },
     ],
@@ -262,9 +265,9 @@ export const megaMenus: Record<string, MegaMenuItem> = {
         title: "GALLERY",
         href: "/news-events/gallery",
         links: [
-          { label: "Care Packs Launch Event", href: "/news-events/care-packs-launch-event" },
-          { label: "Cisco Event", href: "/news-events/cisco-event" },
-          { label: "Packathon 2025", href: "/news-events/packathon-2025" },
+          { label: "Care Packs Launch Event", href: "/news-events/gallery#care-packs-launch" },
+          { label: "Cisco Event", href: "/news-events/gallery#cisco-event" },
+          { label: "Packathon 2025", href: "/news-events/gallery#packathon-2025" },
         ],
       },
     ],
@@ -298,31 +301,36 @@ function registerPage(path: string, info: PageInfo) {
 
 // Populate pages lookup from mega menu data
 Object.entries(megaMenus).forEach(([navKey, item]) => {
-  registerPage(item.href, {
-    title: navKey,
-    category: "Care Packs",
-    description: `Learn more about our ${navKey.toLowerCase()} initiative.`,
-    parentHref: "/",
-    parentLabel: "Home",
-  });
+  if (item.href) {
+    registerPage(item.href, {
+      title: navKey,
+      category: "Care Packs",
+      description: `Learn more about our ${navKey.toLowerCase()} initiative.`,
+      parentHref: "/",
+      parentLabel: "Home",
+    });
+  }
 
   item.columns.forEach((col) => {
     registerPage(col.href, {
       title: col.title,
       category: navKey,
       description: `Explore ${col.title.toLowerCase()} as part of Care Packs.`,
-      parentHref: item.href,
+      parentHref: item.href || "/",
       parentLabel: navKey,
     });
 
     col.links.forEach((link) => {
-      registerPage(link.href, {
-        title: link.label,
-        category: `${navKey} · ${col.title}`,
-        description: `Detailed information about ${link.label}.`,
-        parentHref: col.href,
-        parentLabel: col.title,
-      });
+      const cleanHref = link.href.split("#")[0];
+      if (cleanHref) {
+        registerPage(cleanHref, {
+          title: link.label,
+          category: `${navKey} · ${col.title}`,
+          description: `Detailed information about ${link.label}.`,
+          parentHref: col.href,
+          parentLabel: col.title,
+        });
+      }
     });
   });
 
@@ -331,7 +339,7 @@ Object.entries(megaMenus).forEach(([navKey, item]) => {
       title: item.promo.title || item.promo.cta || "Featured",
       category: `${navKey} · Spotlight`,
       description: item.promo.description,
-      parentHref: item.href,
+      parentHref: item.href || "/",
       parentLabel: navKey,
     });
   }

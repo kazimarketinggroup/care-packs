@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhoWeAreHero from "@/components/about/WhoWeAreHero";
-import WhoWeAreVideoBanner from "@/components/about/WhoWeAreVideoBanner";
 import OurPurposeSection from "@/components/about/OurPurposeSection";
 import BoardOfTrusteesSection from "@/components/about/BoardOfTrusteesSection";
 import FoundingStorySection from "@/components/about/FoundingStorySection";
@@ -90,6 +90,193 @@ export default async function DynamicSlugPage({
 }) {
   const { slug } = await params;
   const pathKey = slug.join("/");
+
+  if (pathKey === "about") {
+    redirect("/about/who-we-are");
+  }
+  if (pathKey === "our-work") {
+    redirect("/our-work/programmes");
+  }
+
+  // Gallery sub-options
+  if (
+    pathKey === "news-events/care-packs-launch-event" ||
+    pathKey === "news-events/care-packs-launch"
+  ) {
+    redirect("/news-events/gallery#care-packs-launch");
+  }
+  if (pathKey === "news-events/cisco-event") {
+    redirect("/news-events/gallery#cisco-event");
+  }
+  if (pathKey === "news-events/packathon-2025") {
+    redirect("/news-events/gallery#packathon-2025");
+  }
+  if (pathKey === "news-events/gallery") {
+    redirect("/news-events/gallery");
+  }
+
+  // Sub-options that belong to Who We Are
+  if (pathKey === "about/our-purpose") {
+    redirect("/about/who-we-are#our-purpose");
+  }
+  if (pathKey === "about/board-of-trustees") {
+    redirect("/about/who-we-are#board-of-trustees");
+  }
+  if (pathKey === "about/founding-story") {
+    redirect("/about/who-we-are#founding-story");
+  }
+
+  // Sub-options that belong to How We Work
+  if (pathKey === "about/referral-model") {
+    redirect("/about/how-we-work#referral-model");
+  }
+  if (pathKey === "about/packing-days") {
+    redirect("/about/how-we-work#packing-days");
+  }
+  if (
+    pathKey === "about/baby-pack-spec" ||
+    pathKey === "about/baby-pack-specification"
+  ) {
+    redirect("/about/how-we-work#baby-pack-spec");
+  }
+
+  // Sub-options that belong to Accountability
+  if (
+    pathKey === "about/governance" ||
+    pathKey === "about/governance-and-policies"
+  ) {
+    redirect("/about/accountability#governance");
+  }
+  if (pathKey === "about/annual-report") {
+    redirect("/about/accountability#annual-report");
+  }
+  if (
+    pathKey === "about/fundraising-standard" ||
+    pathKey === "about/fundraising-standards"
+  ) {
+    redirect("/about/accountability#fundraising-standards");
+  }
+
+  // Sub-options for Programmes
+  if (pathKey === "our-work/phase-1a-early-years") {
+    redirect("/our-work/programmes#phase-1a");
+  }
+  if (pathKey === "our-work/programme-roadmap") {
+    redirect("/our-work/programmes#programme-roadmap");
+  }
+  if (pathKey === "our-work/distribution") {
+    redirect("/our-work/programmes#distribution");
+  }
+
+  // Sub-options for The Baby Pack
+  if (pathKey === "our-work/what-is-in-the-pack") {
+    redirect("/our-work/the-baby-pack#what-is-in-the-pack");
+  }
+  if (pathKey === "our-work/how-it-is-costed") {
+    redirect("/our-work/the-baby-pack#how-it-is-costed");
+  }
+  if (pathKey === "our-work/who-receives-it") {
+    redirect("/our-work/the-baby-pack#who-receives-it");
+  }
+
+  // Sub-options for Who We Help
+  if (pathKey === "our-work/families-in-the-referral-route") {
+    redirect("/our-work/who-we-help#families-in-referral-route");
+  }
+  if (pathKey === "our-work/referring-authorities") {
+    redirect("/our-work/who-we-help#referring-authorities");
+  }
+  if (pathKey === "our-work/where-we-operate") {
+    redirect("/our-work/who-we-help#where-we-operate");
+  }
+
+  // Sub-options for For Councils
+  if (pathKey === "for-councils/the-partnership-model") {
+    redirect("/for-councils/working-with-us#partnership-model");
+  }
+  if (pathKey === "for-councils/data-and-safeguarding") {
+    redirect("/for-councils/working-with-us#data-and-safeguarding");
+  }
+  if (pathKey === "for-councils/service-specification") {
+    redirect("/for-councils/working-with-us#service-specification");
+  }
+  if (pathKey === "for-councils/refer-a-family") {
+    redirect("/for-councils/for-council-officers#refer-a-family");
+  }
+  if (pathKey === "for-councils/referral-criteria") {
+    redirect("/for-councils/for-council-officers#eligibility-criteria");
+  }
+  if (pathKey === "for-councils/delivery-timescales") {
+    redirect("/for-councils/for-council-officers#timescales-logistics");
+  }
+  if (pathKey === "for-councils/become-a-partner-authority") {
+    redirect("/for-councils/new-authorities#why-partner");
+  }
+  if (pathKey === "for-councils/onboarding-steps") {
+    redirect("/for-councils/new-authorities#onboarding-steps");
+  }
+  if (pathKey === "for-councils/speak-to-the-team") {
+    redirect("/for-councils/new-authorities#speak-to-the-team");
+  }
+
+  // Sub-options for Get Involved
+  if (pathKey === "get-involved/public-packing-days") {
+    redirect("/get-involved/volunteer-with-us#public-packing-days");
+  }
+  if (pathKey === "get-involved/collection-drives") {
+    redirect("/get-involved/volunteer-with-us#collection-drives");
+  }
+  if (pathKey === "get-involved/volunteer-enquiries") {
+    redirect("/get-involved/volunteer-with-us#volunteer-enquiries");
+  }
+  if (pathKey === "get-involved/fund-packs-directly") {
+    redirect("/get-involved/fundraise#fund-packs-directly");
+  }
+  if (pathKey === "get-involved/workplace-fundraising") {
+    redirect("/get-involved/fundraise#workplace-fundraising");
+  }
+  if (pathKey === "get-involved/community-collections") {
+    redirect("/get-involved/fundraise#community-collections");
+  }
+  if (pathKey === "get-involved/corporate-partnerships") {
+    redirect("/get-involved/partner-with-us#corporate-partnerships");
+  }
+  if (pathKey === "get-involved/closed-volunteering-days") {
+    redirect("/get-involved/partner-with-us#closed-volunteering-days");
+  }
+  if (pathKey === "get-involved/sponsor-a-pack-run") {
+    redirect("/get-involved/partner-with-us#sponsor-a-pack-run");
+  }
+
+  // Sub-options for Impact
+  if (pathKey === "impact/packs-distributed") {
+    redirect("/impact/our-impact#packs-distributed");
+  }
+  if (pathKey === "impact/cost-per-pack") {
+    redirect("/impact/our-impact#cost-per-pack");
+  }
+  if (pathKey === "impact/reporting-cycle") {
+    redirect("/impact/our-impact#reporting-cycle");
+  }
+  if (pathKey === "impact/early-years-poverty-data") {
+    redirect("/impact/evidence#early-years-poverty-data");
+  }
+  if (pathKey === "impact/referral-outcomes") {
+    redirect("/impact/evidence#referral-outcomes");
+  }
+  if (pathKey === "impact/method-and-limitations") {
+    redirect("/impact/evidence#method-and-limitations");
+  }
+  if (pathKey === "impact/from-council-officers") {
+    redirect("/impact/stories#council-stories");
+  }
+  if (pathKey === "impact/from-volunteers") {
+    redirect("/impact/stories#volunteer-stories");
+  }
+  if (pathKey === "impact/from-partners") {
+    redirect("/impact/stories#partner-stories");
+  }
+
   const page = pagesLookup[pathKey];
 
   const formattedTitle = page
@@ -241,9 +428,6 @@ export default async function DynamicSlugPage({
         {isWhoWeAreGroup ? (
           <div>
             <WhoWeAreHero activeTab={activeTab} />
-            <ScrollReveal>
-              <WhoWeAreVideoBanner />
-            </ScrollReveal>
             <ScrollReveal>
               <OurPurposeSection />
             </ScrollReveal>

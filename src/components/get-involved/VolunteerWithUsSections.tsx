@@ -53,38 +53,45 @@ export function PublicPackingDaysSection() {
         </div>
 
         {/* Upcoming events Callout Card */}
-        <div className="mt-12">
-          <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#1b1b1b] mb-4">
+        <div className="mt-14 sm:mt-16">
+          <h3 className="text-[26px] sm:text-[30px] font-bold text-[#1b1b1b] mb-6">
             Upcoming events
           </h3>
-          <div className="w-full bg-[#fff9fc] border border-[#ec008c]/40 rounded-[14px] p-6 sm:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2 flex-wrap">
-                <h4 className="text-[22px] sm:text-[24px] font-bold text-[#1b1b1b]">
-                  Packathon 2026
-                </h4>
-                <span className="bg-[#ec008c] text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                  Registration open
-                </span>
-              </div>
-              <p className="text-[14px] font-medium text-[#4a4a53] mb-3">
-                13 October 2026 &nbsp;|&nbsp; Porchester Hall, Paddington, London
-              </p>
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-[#6b6b75]">
-                <span><strong>Type:</strong> Major event</span>
-                <span>•</span>
-                <span><strong>Target:</strong> 4,500+ packs</span>
-                <span>•</span>
-                <span><strong>Capacity:</strong> ~15 corporate teams</span>
-              </div>
+          <div className="w-full bg-[#fef7fb] border border-[#f28dc3] rounded-[22px] p-6 sm:p-8 md:p-9 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+              <h4 className="text-[22px] sm:text-[25px] font-bold text-[#1b1b1b] tracking-tight">
+                Packathon 2026
+              </h4>
+              <span className="bg-[#ec008c] text-white text-[11px] sm:text-[12px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider self-start sm:self-auto">
+                Registration open
+              </span>
+            </div>
+            <p className="text-[14px] sm:text-[15px] text-[#6b6b75] mt-1 mb-3">
+              13 October 2026 &nbsp;|&nbsp; Porchester Hall, Paddington, London
+            </p>
+            <div className="flex flex-wrap items-center gap-x-6 sm:gap-x-8 gap-y-2 text-[13.5px] sm:text-[14px] text-[#4a4a53] mb-6">
+              <span>
+                <span className="text-[#6b6b75]">Type:</span>{" "}
+                <strong className="font-semibold text-[#1b1b1b]">Major event</strong>
+              </span>
+              <span>
+                <span className="text-[#6b6b75]">Target:</span>{" "}
+                <strong className="font-semibold text-[#1b1b1b]">4,500+ packs</strong>
+              </span>
+              <span>
+                <span className="text-[#6b6b75]">Capacity:</span>{" "}
+                <strong className="font-semibold text-[#1b1b1b]">~15 corporate teams</strong>
+              </span>
             </div>
 
-            <Link
-              href="/news-events#upcoming-event"
-              className="px-6 py-3 bg-[#ec008c] hover:bg-[#d6007e] text-white font-semibold text-[14px] rounded-[8px] transition-colors whitespace-nowrap shadow-sm"
-            >
-              Register your company
-            </Link>
+            <div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 h-[40px] bg-[#ec008c] hover:bg-[#d6007e] text-white font-semibold text-[14px] rounded-[8px] transition-colors whitespace-nowrap shadow-sm active:scale-[0.98]"
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -18,11 +18,11 @@ export default function AnnouncementBar() {
 
         {/* Right: FAQs & Contact */}
         <div className="flex items-center gap-2 text-white/80 whitespace-nowrap text-xs sm:text-[13px]">
-          <Link href="#faqs" className="hover:text-white transition-colors">
+          <Link href="/faqs" className="hover:text-white transition-colors">
             FAQs
           </Link>
           <span className="text-white/40">·</span>
-          <Link href="#contact" className="hover:text-white transition-colors">
+          <Link href="/contact" className="hover:text-white transition-colors">
             Contact
           </Link>
         </div>

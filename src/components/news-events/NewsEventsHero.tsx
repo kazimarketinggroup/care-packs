@@ -31,6 +31,7 @@ export default function NewsEventsHero() {
                 alt="Mother smiling down at baby receiving a care pack - Care Packs news and events"
                 fill
                 priority
+                sizes="(max-width: 1024px) 100vw, 480px"
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent pointer-events-none" />
