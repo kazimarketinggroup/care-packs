@@ -21,13 +21,13 @@ export default function DonateHero() {
       </div>
 
       {/* Left Graphic on Desktop: Smiling child holding Care Packs box, flush to top, bottom, and left edge */}
-      <div className="hidden md:block absolute left-0 top-0 bottom-0 h-full aspect-[600/562] pointer-events-none z-0">
+      <div className="hidden md:block absolute left-0 top-0 bottom-0 h-full aspect-[2139/2002] pointer-events-none z-0">
         <Image
-          src="/assets/images/donate-hero-child@2x.png"
+          src="/assets/images/donate-hero-child-hd.webp"
           alt="Smiling child receiving a Care Pack - A gift of hope with every pack"
           fill
           priority
-          sizes="(max-width: 1024px) 48vw, 600px"
+          sizes="(max-width: 1024px) 50vw, 900px"
           className="object-contain object-left"
         />
         {/* Soft edge blend into #ffe4f3 to ensure 100% seamless transition */}
@@ -38,13 +38,13 @@ export default function DonateHero() {
       <div className="max-w-[1247px] w-full mx-auto px-4 md:px-6 relative z-10">
         {/* Mobile-only child graphic */}
         <div className="block md:hidden w-full pt-4 pb-2">
-          <div className="relative w-full max-w-[420px] mx-auto aspect-[600/520] overflow-hidden rounded-2xl shadow-[0_8px_24px_rgba(236,0,140,0.08)]">
+          <div className="relative w-full max-w-[420px] mx-auto aspect-[2139/2002] overflow-hidden rounded-2xl shadow-[0_8px_24px_rgba(236,0,140,0.08)]">
             <Image
-              src="/assets/images/donate-hero-child@2x.png"
+              src="/assets/images/donate-hero-child-hd.webp"
               alt="Smiling child receiving a Care Pack - A gift of hope with every pack"
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 420px"
+              sizes="(max-width: 768px) 100vw, 600px"
               className="object-cover object-left-center"
             />
           </div>
